@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Cormorant+Garamond:ital,wght@1,700&family=Inter:wght@600&family=Kalam:wght@300;400;700&family=Merriweather+Sans:wght@300&family=Montserrat+Alternates:ital,wght@1,600&display=swap" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/4a3b660be9.js" crossorigin="anonymous"!important></script>
+    
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+        body{
+            overflow-x: hidden ;
+            font-family: 'Montserrat';
+            font-size: Medium 500;
+        }
+        .sticky-header{
+            background-color: #ffffff;
+            /* color: #fff; */
+            /* padding: 10px; */
+            text-align: center;
+            position: fixed; /* Make the header fixed */
+            width: 100%; /* Occupy full width of the viewport */
+                top: 0; /* Stick it to the top of the viewport */
+            z-index: 1000; /* Ensure the header is on top of other elements */
+        }
+        .svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            fill: #abcdef;
+            stroke: #abcdef;
+            stroke-width: 3;
+        }
+        .bg-color{
+            background-color: #82ca9ebe;
+        }
+        .font-m{
+            font-family: 'Montserrat Alternates';
+            /* font-family: "MondayFeelings-7BD2l", "NowAltMedium"; */
+        }
+        
+        .font-r{
+            font-family: "classic-comic", "NowAltMedium";
+            font-style: normal;
+            font-weight: 500;
+        }
+        .text-clr{
+            color: #867EDF;
+        }
+        /* dovetail-mvb, 'filosofia', */
+        .genica{
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: 200;
+        }
+        .kalam{
+            font-family: 'Kalam', cursive;
+            font-weight: 700;
+        }
+        .Cg{
+            font-family: 'Cormorant Garamond';
+        }
+        .mw{
+            font-family: 'Merriweather Sans';
+        }
+        .barlowC{
+            font-family: "Barlow Condensed";
+        }
+        .inter{
+            font-family: "Inter";
+        }
+        .hv{
+            font-family: Helvetica;
+
+        }
+        
+
+
+        .body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(45deg, #a061ff, #a061ff, #ff61eb, #ff6961, #ffb347, #ffec51,  #ff61eb,  #a061ff, #a061ff); /* Subtle gradient background */
+        /* #7eff5a, #61ffeb, #61a5ff, */
+        background-size: 500% 300%;
+        animation: glowBackground 10s infinite;
+        }
+
+        @keyframes glowBackground {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+        }
+
+        .con {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+
+
+
+
+        .tabs {
+            display: flex;
+            background-color:#867edf7a;
+            border-radius: 15px;
+            /* margin-left: 321px;
+            margin-right: 321px; */
+            width: 850px;
+            /* position: fixed; */
+            /* top:10;
+            z-index:1000; */
+        }
+
+        .tabs a {
+            text-decoration: double;
+            /* padding: 15px 49px 15px 49px; */
+            /* background-color: #f0f0f0; */
+            color: #000000;
+            /* border-right: 1px solid #c1adad; */
+        }
+
+        .tabs a:last-child {
+            border-right: none;
+            border-radius: 15px;
+        }
+
+        .tabs a:hover {
+            background-color: #000;
+            color: #fff;
+            border-radius: 15px;
+        }
+
+        .section {
+            height: 500px; /* Example height */
+            background-color: #f9f9f9;
+            margin-top: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+
+
+        /* body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        } */
+
+        .conta {
+        height:34vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .shape-conta {
+        perspective: 1000px;
+        }
+
+        .shape {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-style: preserve-3d;
+        }
+
+        .shape1 {
+        background-color: #ff69b4;
+        animation: bounceAndScale1 4s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate,
+                    rotateAndFade1 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate,
+                    changeShape1 6s ease-in-out infinite alternate;
+        }
+
+        .shape2 {
+        background-color: #00bfff;
+        animation: bounceAndScale2 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate,
+                    rotateAndFade2 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate,
+                    changeShape2 7s ease-in-out infinite alternate;
+        }
+
+        .shape3 {
+        background-color: #ffd700;
+        animation: bounceAndScale3 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate,
+                    rotateAndFade3 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate,
+                    changeShape3 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes bounceAndScale1 {
+        0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.4);
+        }
+        75%, 25% {
+            transform: translate(-50%, -50%) translateY(-30px) scale(0.8);
+        }
+        }
+
+        @keyframes bounceAndScale2 {
+        0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.6);
+        }
+        75%, 25% {
+            transform: translate(-50%, -50%) translateY(-50px) scale(0.6);
+        }
+        }
+
+        @keyframes bounceAndScale3 {
+        0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        75%, 25% {
+            transform: translate(-50%, -50%) translateY(-70px) scale(0.7);
+        }
+        }
+
+        @keyframes rotateAndFade1 {
+        0%, 100% {
+            transform: translate(-50%, -50%) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(-50%, -50%) rotate(180deg);
+            opacity: 0.5;
+        }
+        }
+
+        @keyframes rotateAndFade2 {
+        0%, 100% {
+            transform: translate(-50%, -50%) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(-50%, -50%) rotate(-180deg);
+            opacity: 0.7;
+        }
+        }
+
+        @keyframes rotateAndFade3 {
+        0%, 100% {
+            transform: translate(-50%, -50%) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(-50%, -50%) rotate(360deg);
+            opacity: 0.8;
+        }
+        }
+
+        @keyframes changeShape1 {
+        0%, 100% {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+        }
+        50% {
+            border-radius: 0;
+            width: 150px;
+            height: 50px;
+        }
+        25% {
+            transform: translate(-50%, -50%) translateY(-50px) translateX(-50px);
+        }
+        50% {
+            transform: translate(-50%, -50%) translateY(50px) translateX(-50px);
+        }
+        75% {
+            transform: translate(-50%, -50%) translateY(50px) translateX(50px);
+        }
+        }
+
+        @keyframes changeShape2 {
+            0%, 100% {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+        }
+        50% {
+            border-radius: 25%;
+            width: 120px;
+            height: 120px;
+        }
+        25% {
+            transform: translate(-50%, -50%) translateY(-50px) translateX(-50px);
+        }
+        50% {
+            transform: translate(-50%, -50%) translateY(50px) translateX(-50px);
+        }
+        75% {
+            transform: translate(-50%, -50%) translateY(50px) translateX(50px);
+        }
+        }
+
+        @keyframes changeShape3 {
+            0%, 100% {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+        }
+        25% {
+            transform: translate(-50%, -50%) translateY(-50px) translateX(0);
+        }
+        50% {
+            transform: translate(-50%, -50%) translateY(50px) translateX(50px);
+        }
+        75% {
+            transform: translate(-50%, -50%) translateY(-50px) translateX(-50px);
+        }
+        }
+
+        
+        .contain {
+        position: relative;
+        height: 0vh;
+        width: 50%;
+        margin-left: -241px;
+        /* margin-top: 10%; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .circle {
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            background-color: #867edf76;
+            border: 5px solid #f3f5df;  
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .inner-circle {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background-color: #867edfdc;
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .triangle {
+            position: absolute;
+            left: calc(50% - 750px);
+            /* margin-top: 0; */
+            width: 3900px;
+            height: 900px;
+            background: linear-gradient(to bottom right, transparent 50%, #e0e0e0 50%);
+        }
+        
+        .svg {
+            width: 800px;
+            height: 400px;
+            /* overflow-x: hidden; */
+        }
+        
+
+    </style>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/now-alt" type="text/css"/>
+    <script src="https://cdn.tailwindcss.com"!important></script>
+</head>
+
+
+
+
+<body>
+  <header class="text-zinc-950 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a href="PSHgradientback.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="270px" height="60px">
+
+          <image href="PSH logo.png" alt="none" x="0" y="0" width="270px" height="70px">
+            
+        </svg>
+        
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-medium">
+        <a href="PSHAboutUs.html" class="mr-12 md:mr-5 md:ml-7 sm:mr-7 sm:ml-4 hover:text-violet-800 text-lg hover:cursor-pointer rounded-lg hover:border-b-4 border-violet-500 font-semibold">About Us</a>
+        <a href="PSHgradientback.html#services" onclick="scrollToSection('services')" class="mr-12 md:mr-5 md:ml-7 sm:ml-3 sm:mr-7 hover:text-violet-800 text-lg hover:cursor-pointer hover:border-b-4 border-violet-500 rounded-lg font-semibold">Services</a>
+        <a href="Careers.html" class="mr-12 md:mr-5 md:ml-7 sm:ml-3 sm:mr-7 hover:text-violet-800 text-lg hover:cursor-pointer font-semibold hover:border-b-4 border-violet-500 rounded-lg">Careers</a>
+        <a href="Resources.html" class="mr-12 md:mr-5 md:ml-7 sm:ml-3 sm:mr-7 hover:text-violet-800 text-lg hover:cursor-pointer font-semibold hover:border-b-4 border-violet-500 rounded-lg">Resources</a>
+      </nav>
+      <a href="cont.html">
+          <button class="inline-flex items-center bg-zinc-950 text-lg text-zinc-50 border-0 py-1 px-3 focus:outline-none hover:text-zinc-950 hover:bg-gray-200 rounded text-base mt-4 ml-3 md:mt-0">Schedule a call
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </button>
+      </a>
+    </div>
+  </header>
+
+
+    <div class="body sm:-mr-16 -mr-10">
+        <!-- <br><br><br> -->
+
+        <div class="sm:bg-auto container py-32 flex">
+            <div>    
+                <div class="justify-self-center font-m text-3xl lg:text-5xl lg:ml-32 ml-12 mb-5"><strong>ABOUT US</strong></div><br>
+                <div class="justify-self-center Cg text-3xl lg:text-5xl lg:ml-32 ml-12 leading-tight">Fostering Brands through Influencer Marketing & Social Media Strategies</div>
+            </div>
+            <div>
+                <!-- <img src="C:\Users\a\Downloads\image-removebg-preview (26).png" style="float:right" class="mr-8" alt="none" width="750"> -->
+            </div>
+            <!-- <img src="C:\Users\a\Downloads\wave-removebg-preview.png" style=" margin-left: auto;" alt="none"> -->
+        </div>
+        
+    </div>
+    <!-- <br><br><br> -->
+    <div id="mission" class="my-28 w-full flex mt-14">
+        <div class="lg:w-3/12 md:w-3/12">
+            <div class="conta">
+                <div class="shape-conta">
+                  <div class="shape shape1"></div>
+                  <div class="shape shape2"></div>
+                  <div class="shape shape3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-9/12 md:w-9/12 w-full ml-12">
+            <p class="text-xl md:text-2xl font-semibold">WHAT WE DO</p>
+            <!-- Mission content -->
+            <div class="lg:text-5xl md:text-4xl text-3xl text-gray-900 font-medium title-font mb-2 md:w-3/5 leading-relaxed"><strong>Our <span class="text-clr">Mission</span></strong></div>
+
+            <div class="flex justify-between">
+                <div class=" mt-14 mx-automax-w-screen-lg lg:pr-14 pr-0 text-2xl mt-14 leading-normal">
+                    <strong>Welcome to <span style="color: #867EDF; font-family: genica;" class="text-3xl">Purple Studio Hub</span>, our exploration of effective <span style="color: black;" class="text-2xl">Social Media Marketing Strategies</span> and <span style="color:black ;" class="text-2xl">Influencer Collaborations!</span><br><br>
+                    We specialise in boosting <span style="color: black;">RETAIL</span> and <span style="color: black;">ONLINE</span> brands in the category of <span style="color: black;">Beauty, Fashion, Lifestyle, Skincare & Fitness</span> on social media
+                    by enabling <span style="color: black;">goal-oriented campaigns</span> that enhance <span style="color: black;">brand visibility</span> and provide <span style="color: black ;">effective reach</span> to your target audience. <br>
+                    Join us to see how Purple elevates the power of social media and how it can boost your business's success.</strong>
+                </div>
+                <!-- <div class="mt-14 ml-5">
+                    <img src="C:\Users\a\Downloads\image-removebg-preview (28).png" style="float:right" class="mr-8" alt="none" width="950">
+                </div> -->
+            </div>
+        </div>  
+    </div>  
+    
+        <svg viewBox="0 0 500 90" xmlns="http://www.w3.org/2000/svg" class="sm:-mr-12 -mr-10">
+            <path fill="#82ca9ebe" d="M0 50 Q100 0 200 50 Q300 100 400 50 Q500 0 550 50 L500 150 L0 150 Z" />
+        </svg>
+
+        <section class="bg-color -mr-10 lg:mr:0">
+        <div id="values" class="w-full">
+            <div class="">
+                <p class="md:text-2xl font-semibold mx-auto text-xl ml-24 md:ml-10 lg:ml-24">GET TO KNOW US</p>
+                <!-- Values content -->
+                <section class="text-gray-800 body-font">
+                    <div class="container flex lg:flex-row md:flex-row flex-col lg:flex-wrap md:w-full mx-auto">
+                        <div class="lg:text-5xl md:text-4xl text-3xl text-gray-900 font-medium title-font mb-2 md:w-2/5 md:ml-0 leading-relaxed ml-24 lg:ml-24"><strong>Our Core <span class="text-clr">Values</span></strong></div>
+                        <div class="w-3/5 md:w-2/5 lg:w-2/5 md:pl-6 mx-auto p-0">
+                        <p class="lg:mr-24 leading-relaxed text-lg sm:text-2xl">Success isn't just about reaching your goals; it's about the pathway you take to get there. Our core philosophy emphasizes the quality of every step we take toward realizing your aspirations.</p>
+                        <!-- <div class="flex md:mt-4 mt-6">
+                            <button class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
+                            <a class="text-indigo-500 inline-flex items-center ml-4">Learn More
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                            </a>
+                        </div> -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- <div class="ml-12 w-9/12"> -->
+                
+    
+    
+                    <section class="text-gray-600 body-font mx-auto">
+                        <div class="container px-5 py-24 mx-auto">
+                          <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                            <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-purple-950 text-indigo-500 flex-shrink-0">
+                              <svg fill="#1C0426" stroke="#1C0426" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-32 sm:h-36 md:ml-2 md:mt-8 lg:ml-0 lg:mt-0 w-10 h-10">
+                                <!-- <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path> -->
+                                <image xlink:href="Value1.png" class="w-10 h-10 lg:w-32 lg:h-36 md:w-28 md:h-28"></image>
+                              </svg>
+                            </div>
+                            <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                              <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Tailored Brilliance</h2>
+                              <p class="leading-relaxed text-base">We craft bespoke strategies as unique as your brand, blending creativity and strategy to ensure you shine like the star you are.</p>
+                              <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                            <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                              <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Authentic Allure</h2>
+                              <p class="leading-relaxed text-base">From content to collaborations, we celebrate the real you. Authenticity is our secret sauce, and it's what makes your audience fall head over heels for your brand.</p>
+                              <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                              </a>
+                            </div>
+                            <div class="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-purple-950 text-indigo-50 flex-shrink-0">
+                              <svg fill="#1C0426" stroke="#1C0426" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-32 sm:h-36 md:ml-2 md:mt-8 lg:ml-0 lg:mt-0 w-10 h-10">
+                                <!-- <circle cx="6" cy="6" r="3"></circle>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path> -->
+                                <image href="Value2.png" class="w-10 h-10 lg:w-32 lg:h-36 md:w-28 md:h-28"></image>
+                              </svg>
+                            </div>
+                          </div>
+                          <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                            <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-purple-950 text-indigo-500 flex-shrink-0">
+                              <svg fill="#1c0426" stroke="#1c0426" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-32 sm:h-36 md:ml-2 md:mt-8 lg:ml-0 lg:mt-3 w-10 h-10 mt-3">
+                                <!-- <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path> -->
+                                <!-- <circle cx="12" cy="7" r="4"></circle> -->
+                                <image href="value3.png" class="w-10 h-10 lg:w-32 lg:h-36 md:w-28 md:h-28"></image>
+                              </svg>
+                            </div>
+                            <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                              <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Joyful Partnerships</h2>
+                              <p class="leading-relaxed text-base">We're not just business partners; we're cheerleaders for your success. Together, we'll navigate the digital world with laughter, joy, and a whole lot of high-fives.</p>
+                              <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                          <!-- <button class="flex mx-auto mt-20 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
+    
+                          <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                            <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                              <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Data-Driven Delights</h2>
+                              <p class="leading-relaxed text-base">Behind every great campaign is a mountain of data. We geek out on analytics to deliver results that make your heart skip a beat and your bottom line soar..</p>
+                              <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                              </a>
+                            </div>
+                            <div class="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-purple-950 text-indigo-500 flex-shrink-0">
+                              <svg fill="#1c0426" stroke="#1c0426" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-32 sm:h-36 md:ml-2 md:mt-8 lg:ml-0 lg:mt-0 w-10 h-10">
+                                <!-- <circle cx="6" cy="6" r="3"></circle> -->
+                                <!-- <circle cx="6" cy="18" r="3"></circle> -->
+                                <!-- <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path> -->
+                                <image href="value4.png" class="w-10 h-10 lg:w-32 lg:h-36 md:w-28 md:h-28"></image>
+                              </svg>
+                            </div>
+                          </div>
+    
+                          <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+                            <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-purple-950 text-indigo-500 flex-shrink-0">
+                              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-32 sm:h-36 md:ml-2 md:mt-8 lg:ml-1 lg:mt-1 w-10 h-10 ml-1">
+                                <!-- <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path> -->
+                                <image href="value5.png" class="w-10 h-10 lg:w-32 lg:h-36 md:w-28 md:h-28"></image>
+                              </svg>
+                            </div>
+                            <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                              <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Community Connection</h2>
+                              <p class="leading-relaxed text-base">Your tribe is our tribe. We're here to foster meaningful connections that turn followers into fans and fans into fiercely loyal brand advocates.</p>
+                              <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+    
+    
+                          <div class="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col">
+                            <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                              <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Unwavering Support</h2>
+                              <p class="leading-relaxed text-base">We've got your back, always. Whether it's a late-night brainstorm or a celebratory dance party, we're in your corner every step of the way.</p>
+                              <a class="mt-3 text-indigo-500 inline-flex items-center">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                              </a>
+                            </div>
+                            <div class="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-purple-950 text-indigo-500 flex-shrink-0">
+                              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-32 sm:h-32 md:ml-2 md:mt-8 lg:ml-0 lg:mt-0 w-10 h-10">
+                                <!-- <circle cx="6" cy="6" r="3"></circle> -->
+                                <!-- <circle cx="6" cy="18" r="3"></circle> -->
+                                <!-- <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path> -->
+                                <image href="value6.png" class="w-10 h-10 lg:w-32 lg:h-36 md:w-28 md:h-28"></image>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                    </section>
+            
+    
+    
+                      
+    
+    
+    
+                    <!-- <section class="text-gray-600 body-font">
+                        <div class="container px-5 py-24 mx-auto">
+                          <div class="flex flex-wrap m-4">
+                            
+                            <div class="xl:w-1/3 md:w-1/2 p-4">
+                              <div class="border border-gray-400 p-6 rounded-lg">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                  </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Tailored Brilliance</h2>
+                                <p class="leading-relaxed text-basec mb-6">We craft bespoke strategies as unique as your brand, blending creativity and strategy to ensure you shine like the star you are.</p>
+                              </div>
+                            </div>
+                            <div class="xl:w-1/3 md:w-1/2 p-4">
+                              <div class="border border-gray-400 p-6 rounded-lg">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <circle cx="6" cy="6" r="3"></circle>
+                                    <circle cx="6" cy="18" r="3"></circle>
+                                    <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                                  </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Authentic Allure</h2>
+                                <p class="leading-relaxed text-base">From content to collaborations, we celebrate the real you. Authenticity is our secret sauce, and it's what makes your audience fall head over heels for your brand.</p>
+                              </div>
+                            </div>
+                            <div class="xl:w-1/3 md:w-1/2 p-4">
+                              <div class="border border-gray-400 p-6 rounded-lg">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                  </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Joyful Partnerships</h2>
+                                <p class="leading-relaxed text-base">We're not just business partners; we're cheerleaders for your success. Together, we'll navigate the digital world with laughter, joy, and a whole lot of high-fives.</p>
+                              </div>
+                            </div>
+                            <div class="xl:w-1/3 md:w-1/2 p-4">
+                              <div class="border border-gray-400 p-6 rounded-lg">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+                                  </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Data-Driven Delights</h2>
+                                <p class="leading-relaxed text-base">Behind every great campaign is a mountain of data. We geek out on analytics to deliver results that make your heart skip a beat and your bottom line soar.</p>
+                              </div>
+                            </div>
+                            <div class="xl:w-1/3 md:w-1/2 p-4">
+                              <div class="border border-gray-400 p-6 rounded-lg">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                                  </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Community Connection</h2>
+                                <p class="leading-relaxed text-base mb-6">Your tribe is our tribe. We're here to foster meaningful connections that turn followers into fans and fans into fiercely loyal brand advocates.</p>
+                              </div>
+                            </div>
+                            <div class="xl:w-1/3 md:w-1/2 p-4">
+                              <div class="border border-gray-400 p-6 rounded-lg">
+                                <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
+                                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                  </svg>
+                                </div>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Unwavering Support</h2>
+                                <p class="leading-relaxed text-base mb-6">We've got your back, always. Whether it's a late-night brainstorm or a celebratory dance party, we're in your corner every step of the way.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+                        </div>
+                      </section> -->
+    
+            <!-- </div> -->
+          
+          <!-- <div id="values" class="w-full flex"> -->
+            <!-- <div class="w-2/12"> -->
+    
+            <!-- </div> -->
+        
+        </div>
+    </section>
+    <div id="why" class="w-full flex">
+        <!-- <div class="w-3/12"> -->
+            
+        <!-- </div> -->
+
+        <div class=" text-xl w-full my-12 ">
+            <p class="text-xl mx-12 md:ml-72 lg:ml-96">EXPLORE OUR CAPABILITIES</p>
+            <!-- About Us content -->
+            <div class=" lg:text-5xl text-3xl text-gray-900 font-medium title-font mb-2 md:w-2/5 ml-12 lg:mx-96 md:mx-auto leading-relaxed font-m"><strong>Why <span class="text-clr">Purple</span></strong></div>
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 py-24 mx-auto">
+                  <!-- <div class="text-center mb-20">
+                    <h1 class="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">Raw Denim Heirloom Man Braid</h1>
+                    <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
+                  </div> -->
+                  <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                    <div class="p-2 sm:w-1/2 w-full">
+                      <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                          <path d="M22 4L12 14.01l-3-3"></path>
+                        </svg>
+                        <span class="title-font font-medium">Growth Generalist Approach</span>
+                      </div>
+                    </div>
+                    <div class="p-2 sm:w-1/2 w-full">
+                      <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                          <path d="M22 4L12 14.01l-3-3"></path>
+                        </svg>
+                        <span class="title-font font-medium">Enrich Content Strategy</span>
+                      </div>
+                    </div>
+                    <div class="p-2 sm:w-1/2 w-full">
+                      <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                          <path d="M22 4L12 14.01l-3-3"></path>
+                        </svg>
+                        <span class="title-font font-medium">Increase Brand Awareness</span>
+                      </div>
+                    </div>
+                    <div class="p-2 sm:w-1/2 w-full">
+                      <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                          <path d="M22 4L12 14.01l-3-3"></path>
+                        </svg>
+                        <span class="title-font font-medium">Goal Oriented Campaigns</span>
+                      </div>
+                    </div>
+                    <div class="p-2 sm:w-1/2 w-full">
+                      <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                          <path d="M22 4L12 14.01l-3-3"></path>
+                        </svg>
+                        <span class="title-font font-medium">Effective Time Management</span>
+                      </div>
+                    </div>
+                    <div class="p-2 sm:w-1/2 w-full">
+                      <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                          <path d="M22 4L12 14.01l-3-3"></path>
+                        </svg>
+                        <span class="title-font font-medium">Accountability and Ownership</span>
+                      </div>
+                    </div>
+                    <div class="p-2 sm:w-1/2 w-full">
+                        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                            <path d="M22 4L12 14.01l-3-3"></path>
+                          </svg>
+                          <span class="title-font font-medium">Build Credibility and Trust</span>
+                        </div>
+                      </div>
+                      <div class="p-2 sm:w-1/2 w-full">
+                        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                            <path d="M22 4L12 14.01l-3-3"></path>
+                          </svg>
+                          <span class="title-font font-medium">Strategic & Creative Brand Mapping</span>
+                        </div>
+                      </div>
+                      <div class="p-2 sm:w-1/2 w-full">
+                        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                            <path d="M22 4L12 14.01l-3-3"></path>
+                          </svg>
+                          <span class="title-font font-medium">Affordable & Efficient Delivery Service</span>
+                        </div>
+                      </div>
+                      <div class="p-2 sm:w-1/2 w-full">
+                        <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                            <path d="M22 4L12 14.01l-3-3"></path>
+                          </svg>
+                          <span class="title-font font-medium">Startup Speed + Big Brand Experience</span>
+                        </div>
+                      </div>
+
+                    
+                  </div>
+                  <!-- <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
+                </div>
+              </section>
+        </div>
+    </div>
+
+    <section class="-mr-10">
+      <div id="platforms" class="w-full flex flex-col lg:flex-row" style="background-color: #e0e0e0;">
+        <div class="text-xl w-full lg:w-8/12 lg:ml-24">
+            <br>
+            <p class="ml-20">JOIN OUR COMMUNITY</p>
+            <div class="ml-20 sm:text-5xl text-2xl text-gray-900 font-medium title-font mb-2 leading-relaxed font-m"><strong>Platforms We <span class="text-clr">Manage</span></strong></div>
+              <!-- <div class="flex flex-row"> -->
+                <div class="ml-20 sm:text-2xl text-xl text-gray-900 mt-14 mx-automax-w-screen-lg pr-14 mw text-2xl mt-14 leading-normal w-9/12 "><strong>Selecting the right social media platforms is like
+                    choosing the perfect tool for the job. Each platform has its unique strengths and audience demographics. For
+                    the brands to grow organically, following are the platforms that we cater:</strong></div>
+
+              <!-- </div> -->
+            <br>
+          <div class="ml-20 flex flex-col md:flex-row mr-16 lg:flex-row gap-16">
+            <div class="flex flex-col">
+                <div class="bg-purple-300 rounded-full p-3">
+                    Social Media Marketing
+                </div>
+                <div class="mx-auto mt-2">
+                    <i class="fa-brands fa-instagram fa-3x mr-3" style="color: #bb1199;"></i>
+                    <i class="fa-brands fa-facebook fa-3x mr-3" style="color: #bb1199;"></i>
+                    <i class="fa-brands fa-linkedin fa-3x" style="color: #bb1199;"></i>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <div class="bg-purple-300 rounded-full p-3">
+                    Influencer Marketing
+                </div>
+                <div class="mx-auto mt-2">
+                    <i class="fa-brands fa-instagram fa-3x mr-3" style="color: #bb1199;"></i>
+                    <i class="fa-brands fa-youtube fa-3x mr-3" style="color: #bb1199;"></i>
+                    
+                </div>
+            </div>
+          </div><br><br><br>
+            <!-- mt-14 mx-automax-w-screen-lg pr-14 mw text-2xl mt-14 leading-normal -->
+        </div>
+        
+        <div class="lg:w-5/12 w-full mr-12 md:my-auto">
+            <img src="platform.png" width="3219px" alt="">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="4.5 10 100 100">
+                Flowy curves
+                <path d="M 20,20 Q 50,10 80,20 T 80,80 T 20,80 T 20,20" fill="none" stroke="#007bff" stroke-width="1.5" />
+                <path d="M 30,30 Q 50,20 70,30 T 70,70 T 30,70 T 30,30" fill="none" stroke="#ff4c4c" stroke-width="1.5" />
+                <path d="M 40,40 Q 50,30 60,40 T 60,60 T 40,60 T 40,40" fill="none" stroke="#4caf50" stroke-width="1.5" />
+                
+                Flowy circles
+                <circle cx="20" cy="20" r="1.5" fill="#007bff" />
+                <circle cx="30" cy="30" r="1.5" fill="#ff4c4c" />
+                <circle cx="40" cy="40" r="1.5" fill="#4caf50" />
+                <circle cx="80" cy="20" r="1.5" fill="#007bff" />
+                <circle cx="70" cy="30" r="1.5" fill="#ff4c4c" />
+                <circle cx="60" cy="40" r="1.5" fill="#4caf50" />
+                <circle cx="80" cy="80" r="1.5" fill="#007bff" />
+                <circle cx="70" cy="70" r="1.5" fill="#ff4c4c" />
+                <circle cx="60" cy="60" r="1.5" fill="#4caf50" />
+                <circle cx="20" cy="80" r="1.5" fill="#007bff" />
+                <circle cx="30" cy="70" r="1.5" fill="#ff4c4c" />
+                <circle cx="40" cy="60" r="1.5" fill="#4caf50" />
+              </svg> -->
+            <!-- <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                Flowy lines
+                <path d="M 10,50 Q 30,70 50,50 T 90,50" fill="none" stroke="blue" stroke-width="2" />
+                <path d="M 10,30 Q 30,50 50,30 T 90,30" fill="none" stroke="green" stroke-width="2" />
+                <path d="M 10,70 Q 30,90 50,70 T 90,70" fill="none" stroke="red" stroke-width="2" />
+                
+                Flowy circles
+                <circle cx="10" cy="50" r="2" fill="blue" />
+                <circle cx="50" cy="30" r="2" fill="green" />
+                <circle cx="90" cy="70" r="2" fill="red" />
+              </svg> -->
+        </div>
+        <!-- <br><br><br> -->
+      </div>
+    </section>
+    <div id="reach" class="w-full flex mt-14">  
+        <div class="w-3/12 -mt-5 lg:-mt-32">
+            <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 30,120 A 100,100 0 0,1 120,30" fill="none" stroke="#867edf" stroke-width="5" stroke-linecap="round"/>
+                <line x1="45" y1="15" x2="85" y2="55" stroke="#867edf" stroke-width="2" stroke-linecap="round" />
+                <line x1="20" y1="20" x2="75" y2="75" stroke="#867edf" stroke-width="2" stroke-linecap="round" />
+                <line x1="15" y1="45" x2="55" y2="85" stroke="#867edf" stroke-width="2" stroke-linecap="round" />
+              </svg>
+        </div>
+        
+        
+        <div class="text-xl w-9/12">
+            <p>WHAT'S NEXT?</p>
+            <div class="sm:text-5xl text-2xl text-gray-900 font-medium title-font mb-2 leading-relaxed font-m"><strong><span class="text-clr">Connect</span> With Us</strong></div>
+              <!-- <div class="flex flex-row"> -->
+                <div class="sm:text-2xl text-xl text-gray-900 mt-14-w-screen-lg pr-14 mw mt-14 leading-normal "><strong>Your voice matters to us. Whether you've got a query or a suggestion, we're all ears and eager to hear from you!</strong></div>
+              <!-- </div> --><br>
+              <div class="sm:text-2xl text-xl text-gray-900 mt-14-w-screen-lg pr-14 mw mt-14 leading-normal">
+                <strong> <a href="mailto:pooja@purplestudiohub.com"> Email: <span style="color:blue;"><u>pooja@purplestudiohub.com</u></span></a>
+                <br>
+                <a href="tel:+91 7011182346 "></a>Phone: <span style="color: blue;"><u>+91 7011182346</u></span></a></strong>
+              </div>
+              <div class="container mx-auto py-4 flex flex-wrap flex-col sm:flex-row">
+                <span class="inline-flex sm:mt-0 justify-center sm:justify-start ">
+                    <a class="text-gray-900 hover:text-gray-900 -mt-1">
+                      <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-16 h-16" viewBox="0 0 30 30">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                      </svg>
+                    </a>
+                    <a class="text-gray-900 hover:text-gray-900 -ml-3">
+                        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 26 26">
+                        <rect width="23" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <!-- <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path> -->
+                            <path stroke-width="2" stroke="white" fill= "white" d="M11 15l5-3-5-3z"></path>
+                    </svg>
+                    </a>
+                    <a class="ml-3 text-gray-900 hover:text-gray-900">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+                          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-900 hover:text-gray-900 mr-32">
+                        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-12 h-12" viewBox="0 0 24 24">
+                          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                        </svg>
+                    </a>
+                    </span>
+              </div>
+            <!-- mt-14 mx-automax-w-screen-lg pr-14 mw text-2xl mt-14 leading-normal -->
+        </div>
+    </div>
+
+    <section class="bg-red-200 -mr-9">
+        <div class=" mw mx-auto text-center sm:text-2xl text-3xl leading-loose">
+            <br><br>
+            <strong>
+            Don't just navigate social media – dominate it. 
+            <br><br>
+            Ready to take your social media presence to the next level?</strong>
+            <a href="cont.html">
+            <button class="flex mx-auto mt-16 text-white bg-purple-700 border-0 py-2 px-8 focus:outline-none hover:bg-gray-900 rounded text-lg">Schedule a call</button>
+            </a>
+            <br><br>
+        </div>
+      </section>
+
+    
+
+
+      <footer class="bg-fuchsia-200 rounded-t-lg text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+            <a href="PSHgradientback.html" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" width="240px" height="60px"> 
+              <!-- fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" -->
+                <image href="PSH logo.png" x="0" y="0" width="240px" height="60px"></image>
+                <!-- <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path> -->
+              </svg>
+              <!-- <span class="ml-3 text-xl">Tailblocks</span> -->
+            </a>
+            <p class="mt-2 text-sm font-semibold text-gray-600">Integrated platform for social media and influencer marketing to drive brand awareness, boost engagement, and maximize reach in the ever evolving digital realm. </p>
+          </div>
+          <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">&nbsp;&nbsp;</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+              <h2 class="title-font font-semibold text-gray-900 tracking-widest text-lg mb-3">COMPANY</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a href="PSHAboutUs.html" class="text-gray-600 hover:text-gray-800">About</a>
+                </li>
+                <li>
+                  <!-- <a class="text-gray-600 hover:text-gray-800">Community</a> -->
+                </li>
+                <li>
+                  <a href="Careers.html" class="text-gray-600 hover:text-gray-800">Careers</a>
+
+                </li>
+                <!-- <li>
+                  <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                </li> -->
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+              <h2 class="title-font text-gray-900 tracking-widest text-lg mb-3 font-semibold">CONTACT US</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a href="cont.html" class="text-gray-600 hover:text-gray-800">Contact Sales</a>
+                </li>
+                <li>
+                  <a href="PSHAboutUs.html#reach" class="text-gray-600 hover:text-gray-800">Email Support</a>
+                </li>
+                <!-- <li>
+                  <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                </li> -->
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+              <h2 class="title-font text-gray-900 tracking-widest text-lg mb-3 font-semibold">LEGAL & POLICIES</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a href="PrivacyPolicy.html#example-1-smooth" class="text-gray-600 hover:text-gray-800">PSH Trust Centre</a>
+                </li>
+                <li>
+                  <a href="PrivacyPolicy.html#example-3-smooth" class="text-gray-600 hover:text-gray-800">Terms of Service</a>
+                </li>
+                <li>
+                  <a href="PrivacyPolicy.html#example-2-smooth" class="text-gray-600 hover:text-gray-800">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="PrivacyPolicy.html#example-4-smooth" class="text-gray-600 hover:text-gray-800">Cookie Notice</a>
+                </li>
+                <li>
+                  <a href="PrivacyPolicy.html#example-sub-A-smooth" class="text-gray-600 hover:text-gray-800">Creator Terms of Service</a>
+                </li>
+                <li>
+                    <a href="PrivacyPolicy.html#example-sub-B-smooth" class="text-gray-600 hover:text-gray-800">Brand Terms of Service</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© Purple Studio Hub 2023 — All rights reserved.
+              <!-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a> -->
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start ">
+              <a href="https://www.facebook.com/share/gTfADemyapig6eVQ/?mibextid=WC7FNe" class="text-gray-500 hover:text-gray-900">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <!-- <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a> -->
+              <a href="https://www.instagram.com/purplestudiohub?igsh=MThwbWlvcmNlZzE2ZQ%3D%3D&utm_source=qr" class="ml-3 text-gray-500 hover:text-gray-900">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/company/purple-studio-hub/" class="ml-3 text-gray-500 hover:text-gray-900 mr-32">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
+
+<script>
+    function scrollToSection(sectionId) {
+  var section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  // Parameters
+  var centerX = 90; // X-coordinate of the center of the spiral
+  var centerY = 90; // Y-coordinate of the center of the spiral
+  var a = 1.0; // Tightness of the spiral
+  var b = 3.0; // Spacing between the coils
+  var numCoils = 3; // Number of coils in the spiral
+  var numPointsPerCoil = 100; // Number of points per coil
+
+  // Generate points for the spiral
+  var path = "";
+  for (var t = 0; t < numCoils * Math.PI * 2; t += (2 * Math.PI) / numPointsPerCoil) {
+    var x = centerX + (a + b * t) * Math.cos(t);
+    var y = centerY + (a + b * t) * Math.sin(t);
+    path += (t === 0 ? "M" : "L") + x + " " + y;
+  }
+
+  // Update the SVG path
+  document.getElementById("spiral").setAttribute("d", path);
+
+</script>
+
+</body>
+</html>

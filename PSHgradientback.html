@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/4a3b660be9.js" crossorigin="anonymous"!important></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <style>
+        body{
+            overflow-x: hidden;
+            font-family: 'Montserrat';
+            font-size: medium 500;
+        }
+        @media screen and (max-width: 1024px) {
+    .hidden-on-sm {
+        display: none;
+    }
+}
+
+        .trusted{
+          overflow-x: hidden;
+        }
+        .sticky-header {
+            background-color: #ffffff;
+            /* color: #fff; */
+            /* padding: 10px; */
+            text-align: center;
+            position: fixed; /* Make the header fixed */
+            width: 100%; /* Occupy full width of the viewport */
+            top: 0; /* Stick it to the top of the viewport */
+            z-index: 1000; /* Ensure the header is on top of other elements */
+        }
+        #textContainer {
+            position: absolute;
+            /* top: 50%;
+            left: 50%; */
+            transform: translate(-50%, -50%);
+        }
+        
+        #changingText, #placeholder {
+            color: #000000;
+            transition: opacity 0.5s;
+        }
+        
+        #placeholder {
+            opacity: 0;
+        }
+
+        .logo-s{
+            /* background-color: #000000; */
+            white-space: nowrap;
+            padding: 60px 0;
+            /* background-color: #fff; */
+
+        }
+        .logo-slide{
+            display: inline-block;
+            animation: 35s slide infinite linear;
+            /* white-space: nowrap; */
+        }
+        .logo-slide:hover{
+            animation-play-state: paused;
+        }
+        .logo-s:hover{
+            animation-play-state: paused;
+        }
+        /* .logo-slide img{
+            height:70px;
+
+        } */
+        @keyframes slide{
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(-100%);
+            }
+        }
+        /* Hide content of steps 2 and 3 by default */
+        /* #step2Content, #step3Content {
+        display: none;
+        } */
+
+
+         /* Custom styles */
+        .tab-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .tab svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            transition: fill 0.3s;
+        }
+
+        .tab-conten {
+            display: none;
+            padding: 20px;
+            /* border: 1px solid #867edfcf;
+            background-color: #867edf94; */
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .image {
+            width: 50%; /* Half of the available space */
+            /* margin-right: 20px; */
+        }
+
+        .content {
+            width: 50%; /* Half of the available space */
+        }
+
+        /* Define custom colors for tabs and icons */
+        #tab1.active, #tab1.active svg {
+            color: #6a1b9a;
+            fill: #ab47bc;
+            /* 8a2be2 */
+            /* stroke:1px solid black; */
+        }
+
+        #tab2.active, #tab2.active svg {
+            color: #BE123C;
+            fill: #F43F5E;
+            /* stroke:1px solid black; */
+            /* ff7a00 */
+        }
+
+        #tab3.active, #tab3.active svg {
+            color: #15803D;
+            fill: #22C55E;
+            /* stroke:1px solid black; */
+            /* 00adb5 */
+        }
+
+        /* Add underline to active tab */
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+        }
+
+         /* Custom styles */
+         .glow-border {
+            /* Apply glowing effect to the border */
+            box-shadow: 0 0 10px 5px rgba(40, 187, 187, 0.8);
+            transition: box-shadow 0.5s ease-in-out;
+        }
+        .glow-border1 {
+            /* Apply glowing effect to the border */
+            box-shadow: 0 0 10px 5px rgba(185, 39, 161, 0.8);
+            transition: box-shadow 0.5s ease-in-out;
+            
+        }
+        .glow-border2 {
+            /* Apply glowing effect to the border */
+            box-shadow: 0 0 10px 5px rgba(255, 98, 33, 0.8);
+            transition: box-shadow 0.5s ease-in-out;
+        }
+        .glow-border3 {
+            /* Apply glowing effect to the border */
+            box-shadow: 0 0 10px 5px rgba(100, 200, 100, 0.8);
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        /* Increase glow when hovered */
+        .glow-border:hover {
+            box-shadow: 0 0 20px 10px rgba(40, 187, 187, 0.8);
+          
+        }
+        .glow-border1:hover {
+            box-shadow: 0 0 20px 10px rgba(185, 39, 161, 0.8);
+        }
+        .glow-border2:hover {
+            box-shadow: 0 0 20px 10px rgba(255, 98, 33, 0.8);
+        }
+        .glow-border3:hover {
+            /* Apply glowing effect to the border */
+            box-shadow: 0 0 20px 10px rgba(100, 200, 100, 0.8);
+        }
+
+
+         /* Custom styles */
+         .tab-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            margin-bottom: 20px; /* Add margin bottom */
+            }
+
+            .tab-content.active {
+                max-height: 1000px; /* Adjust based on content height */
+                transition: max-height 0.5s ease-in;
+            }
+
+            .plus-minus {
+                float: right;
+            }
+
+            .plus-minus.rotate {
+                transform: rotate(45deg);
+            }
+
+            /* Hide all images by default */
+            .hide-img {
+                display: none;
+            }
+/* 
+        .carousel-slide {
+            width: 100%;
+            padding-left: 5vw;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .carousel-slide img {
+            display: block;
+            margin: 0;
+            padding: 0;
+            min-width: 30vw;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .carousel-slide2 {
+            width: 100%;
+            padding-left: 5vw;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .carousel-slide2 img {
+            display: block;
+            margin: 0;
+            padding: 0;
+            min-width: 30vw;
+            margin-left: 20px;
+            margin-right: 20px;
+        } */
+
+        .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 200px; /* Adjust height as needed */
+      overflow: hidden;
+    }
+    .carousel {
+      display: flex;
+      animation: slideAnimation 16s linear infinite; /* Adjust duration as needed */
+    }
+    .carousel-item {
+      flex: 0 0 20%; /* Display 5 items at a time */
+      max-width: 50%;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    @keyframes slideAnimation {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-20%);
+      }
+      33% {
+        transform: translateX(-20%);
+      }
+      53% {
+        transform: translateX(-40%);
+      }
+      66% {
+        transform: translateX(-40%);
+      }
+      86% {
+        transform: translateX(-60%);
+      }
+      100% {
+        transform: translateX(-60%);
+      }
+    }
+
+    </style>
+</head>
+<body>
+  
+
+
+    
+  <header class="text-zinc-950 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a href="PSHgradientback.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="270px" height="60px">
+
+          <image href="PSH logo.png" alt="none" x="0" y="0" width="270px" height="70px">
+            
+        </svg>
+        
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-medium">
+        <a href="PSHAboutUs.html" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer rounded-lg hover:border-b-4 border-violet-500 font-semibold">About Us</a>
+        <a href="#services" onclick="scrollToSection('services')" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer hover:border-b-4 border-violet-500 rounded-lg font-semibold">Services</a>
+        <a href="Careers.html" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer font-semibold hover:border-b-4 border-violet-500 rounded-lg">Careers</a>
+        <a href="Resources.html" class="mr-12 ml-7  hover:text-violet-800 text-lg hover:cursor-pointer font-semibold hover:border-b-4 border-violet-500 rounded-lg">Resources</a>
+      </nav>
+      <a href="cont.html">
+          <button class="inline-flex items-center bg-zinc-950 text-lg text-zinc-50 border-0 py-1 px-3 focus:outline-none hover:text-zinc-950 hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Schedule a call
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </button>
+      </a>
+    </div>
+</header>
+
+
+
+
+<section class="relative flex justify-center items-center mb-32">
+    <!-- Shape container -->
+    <!-- <div class="relative"> -->
+        <!-- Shapes -->
+        <div class="absolute w-96 h-72 rounded-full bg-fuchsia-400 filter blur-3xl bg-opacity-50 top-20 right-10 mix-blend-multiply"></div>
+        <div class="absolute w-96 h-96 rounded-full bg-green-300 filter blur-3xl bg-opacity-50 top-60 right-80 mix-blend-multiply"></div>
+        <div class="absolute w-96 h-72 rounded-full bg-blue-300 filter blur-3xl bg-opacity-50 top-80 right-10 mix-blend-multiply"></div>
+        <div class="absolute w-96 h-72 rounded-full bg-blue-300 filter blur-3xl bg-opacity-50 top-20 left-10 mix-blend-multiply"></div>
+        <!-- <div class="absolute w-96 h-96 rounded-full bg-green-300 filter blur-3xl bg-opacity-50 top-60 left-80 mix-blend-multiply"></div> -->
+        <div class="absolute w-96 h-72 rounded-full bg-fuchsia-400 filter blur-3xl bg-opacity-50 top-80 left-10 mix-blend-multiply"></div>
+
+        <!-- Text -->
+
+        <div class="lg:text-left text-center lg:left-0 flex flex-col lg:flex-row items-center">
+            <!-- <p class="mx-auto my-48">This is some text over the shapes</p> -->
+            <div class="lg:w-3/4 w-full">
+                <div class="text-8xl ml-9 leading-tight w-full font-semibold" style="font-family:'Montserrat'; font-size: medium 500;">
+                    Engage. <span id="textContainer ml-3 mt-3">
+                            <span id="changingText" style="color: #607D8B">Grow.</span><span id="placeholder">|</span>
+                        </span>
+                    <br>
+                    Together. 
+                </div>
+                <div class="text-current ml-12 mt-5 text-2xl font">
+                    We specialize in crafting bespoke<span class="text-red-600 font-extrabold"> social media strategies</span>, empowering 
+                    <span class="text-red-400 font-extrabold">influencers</span>, and generating authentic <span class="text-red-500 font-extrabold">user content</span>.
+                </div>
+            </div>
+            <div class="lg:w-2/4 w-full">
+                <!-- <video src="C:\Users\a\Downloads\WhatsApp Video 2024-02-15 at 4.26.20 PM.mp4" autoplay loop muted class="mt-28"></video> -->
+                <video src="Landingpagevid.mp4" autoplay loop muted class="mt-16"></video>
+            </div>
+        </div>
+</section>
+<!-- <section class="mt-12 rounded-full bg-purple-100">
+    <h3 class="font-semibold text-3xl ml-12 pt-12 pl-20">Trusted By-</h3>
+    <div class="flex">
+        <div class="logo-slide">
+            <div class="logo-s flex">
+                Add your logo images here--
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (2).png" alt="Logo 1" class="mb-11 md:w-24 md:h-24 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (3).png"alt="Logo 2" class="md:w-28 md:h-28 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview1 (7).png" alt="Logo 3" class="md:w-28 md:h-20 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (15).png" alt="Logo 4" class="md:w-24 md:h-20 mx-16"> 
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (18).png" alt="logo 5" class="md:w-24 md:h-20 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (20).png" alt="logo 6" class="md:w-24 md:h-20 mx-16">
+                Add your logo images here--
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (5).png" alt="Logo 5" class="md:w-32 md:h-28 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (13).png" alt="Logo 6" class="md:w-24 md:h-24 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (14).png" alt="Logo 7" class="md:w-28 md:h-20 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (16).png" alt="Logo 9" class="mt-4 md:w-24 md:h-20 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (19).png" alt="Logo 10" class=" mt-3 mb-3 md:w-24 md:h-24 mx-16">
+                <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (21).png" alt="Logo 11" class="md:w-28 md:h-28 mx-16">
+            </div>
+
+        </div>
+    </div>  
+</section>  -->
+<!-- <section class="mt-16 lg:rounded-full bg-fuchsia-50 mx-12 trusted">
+  <h1 class="text-center text-3xl pt-12 font-semibold">Trusted by</h1>
+  <div class="carousel-container pt-12 mx-16">
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (2).png" alt="" class="w-32 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (3).png" alt="" class="w-44 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview1 (7).png" alt="" class="w-36 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (15).png" alt="" class="w-32 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (18).png" alt="" class="w-28 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (20).png" class="w-28 h-24 mx-6" alt="">
+      </div>
+    </div>
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (5).png" alt="" class="w-44 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (13).png" alt="" class="w-32 h-20 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (14).png" alt="" class="w-36 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (16).png" alt="" class="w-32 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (19).png" alt="" class="w-28 h-24 mx-6">
+      </div>
+      <div class="carousel-item">
+        <img src="C:\Users\a\Downloads\PSH_img\image-removebg-preview (21).png" class="w-28 h-24 mx-6" alt="">
+      </div>
+    </div>
+  </div>
+  <br>
+</section> -->
+
+<!-- <section class="py-12">
+<div class="container ml-12 mr-32">
+    <div class="swiper-container swiper mySwiper ">
+        <div class="swiper-wrapper mb-6">
+            
+            <div class="swiper-slide">
+                
+                <img src="image-removebg-preview (2).png" alt="" class="w-32 h-24 mx-6">
+                
+            </div>
+           <div class="swiper-slide">
+        <img src="image-removebg-preview (3).png" alt="" class="w-44 h-24 mx-6">
+                
+            </div>
+           <div class="swiper-slide">
+                
+        <img src="image-removebg-preview1 (7).png" alt="" class="w-36 h-24 mx-6">
+
+            </div>
+           <div class="swiper-slide">
+                
+        <img src="image-removebg-preview (15).png" alt="" class="w-32 h-24 mx-6">
+
+            </div>
+           <div class="swiper-slide">
+                
+        <img src="image-removebg-preview (18).png" class="w-28 h-24 mx-6 pb-2" alt="">
+
+            </div>
+            <div class="swiper-slide">
+              
+        <img src="image-removebg-preview (20).png" class="w-28 h-24 mx-6" alt="">
+              
+            </div>
+           <div class="swiper-slide">
+                
+        <img src="image-removebg-preview (5).png" alt="" class="w-44 h-24 mx-6 mt-3">
+
+            </div>
+           <div class="swiper-slide">
+        <img src="image-removebg-preview (13).png" alt="" class="w-32 h-20 mx-6 mt-3">
+
+            </div>
+           <div class="swiper-slide">
+        <img src="image-removebg-preview (14).png" class="w-36 h-24 mx-6 mb-3" alt="">
+
+            </div>
+            <div class="swiper-slide">
+        <img src="image-removebg-preview (16).png" class="w-32 h-24 mx-6 pt-2" alt="">
+
+            </div>
+           <div class="swiper-slide">
+        <img src="image-removebg-preview (19).png" class="w-28 h-24 mx-6 mt-2" alt="">
+
+            </div>
+            <div class="swiper-slide">
+        <img src="image-removebg-preview (21).png" class="w-32 h-28 mx-6 mb-6" alt="">
+
+            </div>
+           <!- <div class="swiper-slide">
+                <img src="logo1.png" alt="Logo 10" class="w-full h-32">
+            </div> 
+          
+        </div>
+        <div class="swiper-pagination"></div> 
+    </div>
+</div>
+</section> -->
+
+<!-- Include Swiper JS -->
+<!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+<!--     
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: '5',
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+</script> -->
+
+<!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+
+<!-- <script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: getSlidesPerView(), // Initial slides per view based on screen size
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            200:{
+               slidesPerView: 2;
+            }
+            640: {
+                slidesPerView: 3, // Number of slides per view for small screens (md)
+            },
+            768: {
+                slidesPerView: 4, // Number of slides per view for medium screens (md)
+            },
+            1024: {
+                slidesPerView: 5, // Number of slides per view for large screens (lg)
+            }
+        }
+    });
+
+    function getSlidesPerView() {
+        if (window.innerWidth < 640) {
+            return 3;
+        } else if (window.innerWidth < 800) {
+            return 5;
+        } else {
+            return 2;
+        }
+    }
+
+    // Update slides per view on window resize
+    window.addEventListener('resize', function () {
+        swiper.params.slidesPerView = getSlidesPerView();
+        swiper.update();
+    });
+</script> -->
+
+  
+
+<!-- <section>
+  <div class="carousel-container">
+    <i class="fa fa-angle-left" id="prevBtn"></i>
+    <i class="fa fa-angle-right" id="nextBtn"></i>
+    <div class="carousel-slide">
+      <img src="//dummyimage.com/500x250.png/f09/fff&text=5" title="clone last" />
+      <img src="//dummyimage.com/500x250.png/09f/fff&text=1" title="first" />
+      <img src="//dummyimage.com/500x250.png/90f/fff&text=2" />
+      <img src="//dummyimage.com/500x250.png/9f0/fff&text=3" />
+      <img src="//dummyimage.com/500x250.png/f90/fff&text=4" />
+      <img src="//dummyimage.com/500x250.png/f09/fff&text=5" title="last" />
+      <img src="//dummyimage.com/500x250.png/09f/fff&text=1" title="clone first" />
+      <img src="//dummyimage.com/500x250.png/90f/fff&text=2" title="clone two" />
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="carousel-container2">
+      <i class="fa fa-angle-left" id="prevBtn"></i>
+      <i class="fa fa-angle-right" id="nextBtn"></i>
+      <div class="carousel-slide2">
+        <img src="//dummyimage.com/500x250.png/90f/fff&text=1" title="clone last" />
+        <img src="//dummyimage.com/500x250.png/09f/fff&text=5" title="first" />
+        <img src="//dummyimage.com/500x250.png/f09/fff&text=4" />
+        <img src="//dummyimage.com/500x250.png/9f0/fff&text=3" />
+        <img src="//dummyimage.com/500x250.png/f90/fff&text=2" />
+        <img src="//dummyimage.com/500x250.png/f09/fff&text=1" title="last" />
+        <img src="//dummyimage.com/500x250.png/09f/fff&text=5" title="clone first" />
+        <img src="//dummyimage.com/500x250.png/90f/fff&text=4" title="clone two" />
+      </div>
+    </div>
+</section> -->
+
+
+<section>
+    <div class="my-20 pt-9">
+        <!-- <p class="sm:text-xl text-xl md:text-2xl ml-24">WHAT CAN PURPLE DO FOR YOU</p> -->
+        <!-- Values content -->
+        <section class="text-gray-800">
+            <div class="container flex lg:flex-row md:flex-row flex-col md:w-full">
+                <div class="sm:text-4xl md:text-5xl text-5xl lg:text-5xl text-gray-900 font-medium  mb-2 md:w-2/5 leading-relaxed ml-24"><strong>Unlock Your Brand's Full Potential with Purple</strong></div>
+                <div class="md:w-1/2 lg:pl-6">
+                  <p class="ml-24 leading-relaxed text-3xl">Discover tailor-made strategies for your brand's success with our dedicated commitment. Partner with us to unlock unparalleled potential and build lasting trust.</p>
+                <!-- <div class="flex md:mt-4 mt-6">
+                    <button class="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
+                    <a class="text-indigo-500 inline-flex items-center ml-4">Learn More
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                    </a>
+                </div> -->
+              </div>
+            </div>
+        </section>
+    </div>
+<!-- <section class="text-gray-600 body-font">
+        
+        <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
+          <div class="flex mx-auto flex-wrap mb-20">
+            <a onclick="changeContent(1)" id="step1" class=" sm:px-6 py-3 w-1/2 sm:w-auto sm:text-xl md:text-2xl justify-center sm:justify-start hover:border-b-2 title-font font-medium bg-white inline-flex items-center leading-none border-fuchsia-500 text-indigo-500 tracking-wider rounded-t cursor-pointer hover:text-fuchsia-700">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>--
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>  --
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" id="icon1" class="mr-1 w-6 h-6 hover:stroke-fuchsia-950 hover:fill-fuchsia-500 hover:scale-110">
+                <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
+                <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+              </svg>
+              <span id="text1">Expand Community</span>
+            </a>
+            -- Add similar onclick handlers for other steps --
+            <a onclick="changeContent(2)" id="step2" class="sm:px-6 py-3 w-1/2 sm:w-auto sm:text-xl md:text-2xl justify-center sm:justify-start hover:border-b-2 title-font font-medium bg-white inline-flex items-center leading-none border-rose-500 text-indigo-500 tracking-wider rounded-t cursor-pointer hover:text-rose-700">
+                -- <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg> --
+                -- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                </svg>    --
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" id="icon2" class="w-6 h-6 hover:stroke-rose-950 hover:fill-rose-500 hover:scale-110">
+                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                    <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                  </svg> 
+                <span id="text2">Craft Content</span>
+            </a>
+            <a onclick="changeContent(3)" id="step3" class="sm:px-6 py-3 w-1/2 sm:w-auto sm:text-xl md:text-2xl justify-center sm:justify-start hover:border-b-2 title-font font-medium bg-white inline-flex items-center leading-none border-green-500 text-indigo-500 tracking-wider rounded-t cursor-pointer hover:text-green-700">
+                -- <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg> --
+                -- <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:stroke-green-500 hover:fill-green-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
+                </svg> --
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" fill="none" id="icon3" class="w-6 h-6 hover:stroke-emerald-950 hover:fill-green-500 hover:scale-110">
+                    <path fill-rule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z" clip-rule="evenodd" />
+                </svg>
+                <span id="text3">Reach Aspirations</span>
+            </a>
+          </div>
+          <div class="rounded-lg bg-purple-300 px-4 py-8 mx-32 my-8">
+            <div id="step1Content" class="flex flex-col lg:flex-row items-center">
+                flex flex-col text-center w-full--
+                Initial content--
+                <div class="lg:w-1/2 md:w-1/2 w-full">    --
+                <div class="lg:w-1/2 lg:order-1 mb-4 lg:mb-0">
+                    <img class="pl-10 pr-20 py-12 mx-auto lg:mx-0" alt="hero" src="https://dummyimage.com/720x600">
+                    xl:w-1/4 lg:w-1/3 md:w-1/2 w-full block mx-auto mb-10 object-cover object-center rounded--
+                </div>
+                </div>-
+                <div class="lg:w-1/2 lg:pr-10 md:w-1/2 w-full lg:mb-0 mb-10">--
+                <div class="lg:w-1/2 lg:order-2">
+                    <h1 id="title" class="text-2xl lg:text-4xl font-bold text-gray-800">Scale up your community</h1>
+                    text-xl font-medium title-font mb-4 text-gray-900"--
+                    <p id="description" class="mt-10 text-base lg:text-lg text-gray-600">Empower your journey and amplify your network securely. Our platform provides a robust foundation for fostering connections, driving engagement, and cultivating a vibrant community. With intuitive features and a seamless integration, we make it easy for you to build, manage and sustain a thriving network. Elevate your brand’s presence and amplify your impact- Strengthen your community with assurance today.</p>
+                    lg:w-2/3 mx-auto leading-relaxed text-base--
+                </div>   
+                </div>--
+            </div>
+            <div id="step2Content" class="flex flex-col lg:flex-row items-center">
+                -- flex flex-col text-center w-full --
+                Initial content--
+                <div class="lg:w-1/2 lg:order-1 mb-4 lg:mb-0">
+                    <img class="pl-10 pr-20 py-12 mx-auto lg:mx-0" alt="hero" src="https://dummyimage.com/720x600">
+                xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded--
+                </div>
+                <div class="lg:w-1/2 lg:order-2">
+                    <h1 id="title" class="text-2xl lg:text-4xl font-bold text-gray-800">Craft reverberating content</h1>
+                text-xl font-medium title-font mb-4 text-gray-900--
+                    <p id="description" class="mt-10 text-base lg:text-lg text-gray-600">Unleash the power of your message with our platform that helps you build resonating content. Elevate your brand’s narrative and captivate your audience with compelling stories, engaging visuals, and impactful messaging. Our platform empowers you to create content that resonates, leaving a lasting impression on your audience. Amplify your reach, spark conversations, and stand out in the digital landscape- Design compelling content with us and make your story unforgettable.</p>
+                lg:w-2/3 mx-auto leading-relaxed text-base--
+                </div>
+            </div>
+            <div id="step3Content" class="flex flex-col lg:flex-row items-center">
+                flex flex-col text-center w-full--
+                Initial content--
+                <div class="lg:w-1/2 lg:order-1 mb-4 lg:mb-0">    
+                    <img class="pl-10 pr-20 py-12 mx-auto lg:mx-0" alt="hero" src="C:\Users\a\Downloads\i7.png">
+                    xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 mb-10 block object-cover object-center rounded--
+                </div>
+                <div class="lg:w-1/2 lg:order-2">    
+                    <h2 id="title" class="text-2xl lg:text-4xl font-bold text-gray-800">Reach progress aspirations</h2>
+                    text-xl font-medium title-font mb-4 text-gray-900--
+                    <p id="description" class="mt-10 text-base lg:text-lg text-gray-600">Embark on a journey of success as you accomplish forward momentum with our innovative platform. Seamlessly navigate towards our goals, leveraging powerful techniques designed to accelerate growth and achievement. Whether you’re an individual striving for personal milestones or a business with ambitious targets, our solutions pave the way for realisation. Elevate your aspirations, unlock new possibilities, and witness tangible progress- Choose us to propel your journey and reach progress aspirations with confidence.</p>
+                    mt-10 text-base lg:text-lg text-gray-600--
+                </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+    
+      <div class="rounded-lg mx-auto lg:mx-32 ml-10 -mr-10">
+        <div class="container mx-auto lg:p-4">
+            <div class="tab-container grid grid-cols-2 lg:grid-cols-3 gap-4">
+                <div onclick="showTa(1)" id="tab1" class="tab active font-semibold text-xl lg:mx-auto md:text-2xl lg:text-3xl">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11a7 7 0 0 1 14 0v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15s3 0 3 3H9c0-3 3-3 3-3z"></path>
+                    </svg> --> 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" id="icon1" style="width: 32px; height:32px;" class="mr-1 w-6 h-6 hover:stroke-fuchsia-950 hover:fill-fuchsia-500 hover:scale-110">
+                        <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
+                        <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                    </svg>
+                    Expand Community   
+                </div>
+                <div onclick="showTa(2)" id="tab2" class="tab font-semibold text-xl lg:mx-auto md:text-2xl lg:text-3xl">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6V4m0 2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2 5 5 0 0 1 5 5v2m0-2a5 5 0 0 1 5 5v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a5 5 0 0 1 5-5 2 2 0 0 1 2 2z">
+                        </path>
+                    </svg> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" id="icon2" style="width: 32px; height:32px;" class="w-6 h-6 hover:stroke-rose-950 hover:fill-rose-500 hover:scale-110">
+                        <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                        <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                    </svg> 
+                    Craft Content 
+                </div>
+                <div onclick="showTa(3)" id="tab3" class="tab font-semibold text-xl md:text-2xl lg:text-3xl">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" fill="none" id="icon3" style="width:32px ; height:32px;" class="w-6 h-6 hover:stroke-emerald-950 hover:fill-green-500 hover:scale-110">
+                        <path fill-rule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z" clip-rule="evenodd" />
+                    </svg>
+                    Reach Progress
+                </div>
+            </div>
+    
+            <div id="conten1" class="bg-purple-300 rounded-lg h-full active" style="background-image: url('bg3-01.png');">
+                <div class="content-wrapper lg:flex-row flex-col p-12 pr-20">
+                    <!-- <div> -->
+                        <img src="scale up your community.png" alt="Image 1" class="lg:w-1/2 w-full lg:pl-6 p-3 h-full">
+                    <!-- </div> -->
+                    <div class="content w-full">
+                        <h1 class="text-5xl font-extrabold text-blue-800 leading-tight">Scale up your community</h1>
+                        <br><br>
+                        <p class="text-2xl font-bold text-black">Empower your journey and amplify your network securely. Our platform provides a robust foundation for fostering connections, driving engagement, and cultivating a vibrant community. Strengthen your community with assurance today.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="conten2" class="bg-pink-200 rounded-lg h-full tab-conten" style="background-image: url('pink bg-01.png');">
+                <div class="content-wrapper lg:flex-row flex-col -ml-5 p-3">
+                    <img src="craft reverbrating content.png" alt="Image 2" class="mr-12 -pt-6 lg:w-1/2 w-full lg:pl-6 h-full">
+                    <div class="content w-full p-4">
+                        <h1 class="text-5xl font-extrabold text-blue-800 leading-tight">Craft reverberating content</strong></h1>
+                        <br><br>
+                        <p class="text-2xl font-bold text-black">Activate the strength of your message with our platform that helps you build resonating content. Boost your brand’s narrative and captivate your audience with compelling stories, engaging visuals, and impactful messaging. Design compelling content with us and make your story unforgettable.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="conten3" class="bg-emerald-300 rounded-lg h-full tab-conten" style="background-image: url('light green-01.png');">
+                <div class="content-wrapper lg:flex-row flex-col p-4">
+                    <img src="reach progress.png" alt="Image 3" class="lg:w-1/2 w-full lg:pl-6 h-full">
+                    <div class="content w-full lg:p-4 lg:pr-6">
+                        <h1 class="text-5xl font-extrabold text-blue-800 leading-tight">Reach progress aspirations</h1>
+                        <br><br>
+                        <p class="text-2xl font-bold text-black">Discover tailor-made strategies for your brand's success with our dedicated commitment. Partner with us to unlock unparalleled potential and build lasting trust. Choose us to propel your journey and reach progress aspirations with confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section> 
+
+<!-- <div class="flex justify-center items-center h-96">
+  <div class="flex">
+    <div class="w-32 h-64 bg-gray-300 relative hover:w-96 rounded-lg">
+      <div class="absolute inset-0 bg-white opacity-0 transition-opacity duration-300"></div>
+      <div class="absolute inset-0 bg-blue-500 opacity-0 transition-opacity duration-300 hover:opacity-100">Section 1</div>
+    </div>
+    <div class="w-32 h-72 bg-gray-300 relative border-l-2 border-gray-400 hover:w-96 rounded-lg">
+      <div class="absolute inset-0 bg-white opacity-0 transition-opacity duration-300"></div>
+      <div class="absolute inset-0 bg-blue-500 opacity-0 transition-opacity duration-300 hover:opacity-100">Section 2</div>
+    </div>
+    <div class="w-32 h-72 bg-gray-300 relative border-l-2 border-gray-400 hover:w-96 rounded-lg">
+      <div class="absolute inset-0 bg-white opacity-0 transition-opacity duration-300"></div>
+      <div class="absolute inset-0 bg-blue-500 opacity-0 transition-opacity duration-300 hover:opacity-100">Section 3</div>
+    </div>
+    <div class="w-32 h-64 bg-gray-300 relative border-l-2 border-gray-400 hover:w-96 rounded-lg">
+      <div class="absolute inset-0 bg-white opacity-0 transition-opacity duration-300"></div>
+      <div class="absolute inset-0 bg-blue-500 opacity-0 transition-opacity duration-300 hover:opacity-100">Section 4</div>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="flex gap-4">
+  <div class="bg-red-300 w-8 h-4 md:h-8 lg:h-12 xl:h-16"></div>
+  <div class="bg-blue-300 w-8 h-8 md:h-12 lg:h-16 xl:h-20"></div>
+  <div class="bg-green-300 w-8 h-12 md:h-16 lg:h-20 xl:h-24"></div>
+  <div class="bg-yellow-300 w-8 h-16 md:h-20 lg:h-24 xl:h-28"></div>
+</div>
+ -->
+ <!-- <section id="services" class="rounded-lg bg-blue-50 bg-cover bg-center h-full mt-12" style="background-image: url(bg-smm-ifm-ugc-bs.png);">
+  <div class="text-5xl text-center pt-32 pb-16">
+      <strong>All in one platform for all your <span class="text-purple-800"> marketing </span> needs</strong>
+  </div>
+<div class="flex justify-center items-center h-96 gap-12 mt-12">
+  <div class="w-32 h-64 bg-gray-600 rounded-full mr-1"></div>--
+  <a href="PSHsocialmedia.html">
+  <div class="w-44 hover:w-96 h-72 bg-purple-400 rounded-full mr-1 text-white pt-6 px-3 hover:px-6 text-center text-2xl font-semibold">
+    <i class="fa-solid fa-arrow-right fa-rotate-by -mt-3 rounded-full bg-purple-600 p-1" style="--fa-rotate-angle: 320deg;"></i><br>
+    SOCIAL MEDIA MARKETING
+    <img src="C:\Users\a\Downloads\smm_.png" class="mt-2" alt="">
+  </div></a>
+  <a href="PSHinfluencer.html">
+  <div class="w-44 hover:w-96 h-80 bg-pink-400 rounded-full mr-1 text-white pt-8 px-3 hover:px-9 text-center text-2xl font-semibold">
+    <i class="fa-solid fa-arrow-right fa-rotate-by rounded-full bg-pink-600 p-1" style="--fa-rotate-angle: 320deg;"></i><br>
+    INFLUENCER MARKETING
+    <img src="C:\Users\a\Downloads\ifm_.png" class="mt-2" alt="">
+  </div>
+  </a>
+  <div class="w-3 h-96 bg-gray-400 rounded-full mr-1 "></div>--
+  <a href="UGC.html">
+  <div class="w-44 h-80 hover:w-96 bg-green-400 rounded-full mr-1 text-white pt-8 px-3 hover:px-6 text-center text-2xl font-semibold">
+    <i class="fa-solid fa-arrow-right fa-rotate-by rounded-full bg-green-600 p-1" style="--fa-rotate-angle: 320deg;"></i><br>
+    USER GENERATED CONTENT
+    <img src="C:\Users\a\Downloads\ugcontent_.png" class="mt-2" alt="">
+  </div>
+  </a>
+  <a href="Brand.html">
+  <div class="w-44 h-72 hover:w-96 bg-red-400 rounded-full mr-1 text-white pt-5 px-3 hover:px-6 text-center text-2xl font-semibold">
+    <i class="fa-solid fa-arrow-right fa-rotate-by rounded-full bg-red-600 p-1" style="--fa-rotate-angle: 320deg;"></i><br>
+    BRAND SHOOTS
+    <img src="C:\Users\a\Downloads\bs.png" class="mt-2" alt="">
+  </div>
+  </a>
+  <div class="w-32 h-64 bg-gray-600 rounded-full mr-1"></div>--
+</div>
+<br><br><br><br><br><br><br><br>
+</section> -->
+
+<section id="services" class="rounded-lg bg-blue-50 bg-cover bg-center mt-12 -mr-20" style="background-image: url(bg-smm-ifm-ugc-bs.png);">
+    <div class="text-5xl text-center pt-32 pb-16">
+        <strong>All in one platform for all your <span class="text-purple-800"> marketing </span> needs</strong>
+    </div>
+    <div class="flex lg:flex-row flex-col justify-center items-center gap-12 md:mt-20 lg:mt-12">
+    <!-- <div class="w-32 h-64 bg-gray-600 rounded-full mr-1"></div> -->
+    <a href="PSHsocialmedia.html">
+    <div class="w-44 hover:w-96 h-72 bg-purple-400 rounded-full mr-1 text-white pt-6 px-3 mb-12 hover:px-6 text-center text-2xl font-semibold">
+      <i class="fa-solid fa-arrow-right fa-rotate-by -mt-3 rounded-full bg-purple-600 p-1" style="--fa-rotate-angle: 320deg;"></i><br>
+      SOCIAL MEDIA MARKETING
+      <img src="smm_.png" class="mt-2" alt="">
+    </div></a>
+    <a href="PSHinfluencer.html">
+    <div class="w-44 hover:w-96 h-80 bg-pink-400 rounded-full mr-1 text-white pt-8 px-3 mb-12 hover:px-9 text-center text-2xl font-semibold">
+      <i class="fa-solid fa-arrow-right fa-rotate-by rounded-full bg-pink-600 p-1" style="--fa-rotate-angle: 320deg;"></i><br>
+      INFLUENCER MARKETING
+      <img src="ifm_.png" class="mt-2" alt="">
+    </div>
+    </a>
+    <!-- <div class="w-3 h-96 bg-gray-400 rounded-full mr-1 "></div> -->
+    <a href="UGC.html">
+    <div class="w-44 h-80 hover:w-96 bg-green-400 rounded-full mr-1 text-white pt-8 px-3 mb-12 hover:px-6 text-center text-2xl font-semibold">
+      <i class="fa-solid fa-arrow-right fa-rotate-by rounded-full bg-green-600 p-1" style="--fa-rotate-angle: 320deg;"></i><br>
+      USER GENERATED CONTENT
+      <img src="ugcontent_.png" class="mt-2" alt="">
+    </div>
+    </a>
+    <a href="Brand.html">
+    <div class="w-44 h-72 hover:w-96 bg-red-400 rounded-full mr-1 text-white pt-5 px-3 mb-12 hover:px-6 text-center text-2xl font-semibold">
+      <i class="fa-solid fa-arrow-right fa-rotate-by rounded-full bg-red-600 p-1" style="--fa-rotate-angle: 320deg;"></i><br>
+      BRAND SHOOTS
+      <img src="bs.png" class="mt-2" alt="">
+    </div>
+    </a>
+    <!-- <div class="w-32 h-64 bg-gray-600 rounded-full mr-1"></div> -->
+  </div>
+  <br><br><br><br><br><br><br><br>
+  </section>
+<!-- <section class="rounded-lg bg-blue-300 px-4 py-8 mx-32 my-8">
+    <div class="flex flex-col lg:flex-row items-center">
+        Image Div
+        <div class="lg:w-1/2 lg:order-1 mb-4 lg:mb-0">
+          Image Goes Here
+          <img class="pl-10 pr-20 py-12 mx-auto lg:mx-0" src="C:\Users\a\Downloads\i7.png" alt="Your Image">
+        </div>
+        Content Div
+        <div class="lg:w-1/2 lg:order-2">
+          Content Goes Here
+          <h2 class="-mt-44 text-2xl lg:text-4xl font-bold text-gray-800">Scale up your community</h2>
+          <p class="mt-10 text-base lg:text-lg text-gray-600"> Strengthen your community with assurance today by-</p>
+          <p>
+              Securely empowering and expanding your network.
+          </p>
+          <p>
+              Fostering vibrant connections with our robust platform .
+          </p>
+          <p>
+              Seamlessly managing network with our intuitive features.
+          </p>
+          <p>
+              Elevating brand presence and amplifying impact.
+          </p>
+        </div>
+    </div>
+</section> -->
+
+
+<!-- <section id="services" class="rounded-lg mx-16">
+    <br><br><br>
+    <div class="text-5xl text-center">
+        <strong>All in one platform for all your marketing needs</strong>
+    </div>
+    <br><br><br>
+    <div class="container mx-auto p-4 flex justify-between">
+        Box 1
+            <div class="w-1/5 h-28 bg-white text-gray-800 glow-border rounded-lg ml-9">
+              <a href="PSHsocialmedia.html">
+                <div class="p-4 hover:text-white">
+                    <h2 class="group-hover:block text-3xl font-semibold text-gray-800 text-center">Social Media Marketing</h2>
+                    <p class="group-hover:block absolute "></p>
+
+                </div>
+              </a>
+            </div>
+        Box 2
+             <div class="w-1/5 h-28 bg-white glow-border1 rounded-lg mr-6">
+              <a href="PSHinfluencer.html">
+                <div class="p-4">
+                    <h2 class="text-3xl font-semibold text-gray-800 text-center">Influencer <br> Marketing</h2>
+                </div>
+              </a>
+            </div>
+        Box 3
+    </div>
+    <div class="container mx-auto p-4 flex justify-between ">
+            <div class="w-1/5 h-28 bg-white glow-border2 rounded-lg ml-96 mt-16">
+              <a href="UGC.html">
+                <div class="p-4">
+                    <h2 class="text-3xl font-semibold text-gray-800 text-center">User Generated <br> Content</h2>
+                </div>
+              </a>
+            </div>
+            <div class="w-1/5 h-28 bg-white glow-border3 rounded-lg mr-96 mt-16">
+              <a href="Brand.html">    
+                <div class="p-4">
+                    <h2 class="text-3xl font-semibold text-gray-800 text-center">Brand <br> Shoots</h2>
+                </div>
+              </a>
+            </div>
+    </div>
+<br><br><br>
+</section> -->
+<!-- 
+<br><br><br>
+<br><br><br> -->
+<section>
+    
+  <div class="bg-orange-100 py-6 sm:py-8 lg:py-12 -mr-20">
+    <br><br>
+    <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+      <!-- text - start -->
+      <div class="mb-10 md:mb-16">
+        <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-5xl">Powering Growth Across Diverse Industries</h2>
+        <p class="mx-auto max-w-screen-md text-center font-semibold text-red-500 md:text-2xl">We are happy to serve brands from all over the place whether it is an OFFLINE STORE or ONLINE BRAND.</p>
+      </div>
+      <!-- text - end -->
+  
+      <div class="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 lg:gap-x-8 lg:gap-y-12">
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-shirt fa-4x lg:mt-8 mt-4 ml-2 md:ml-6 md:mt-8 lg:ml-6" style="color: #FFD43B;"></i>
+            <!-- <img src="C:\Users\a\Downloads\clark-street-mercantile-qnKhZJPKFD8-unsplash.jpg" loading="lazy" alt="unsplash" class="h-full w-full object-cover object-center"/> -->
+            <!-- <img src="https://images.unsplash.com/photo-1567515004624-219c11d31f2e??auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Radu Florin" class="h-full w-full object-cover object-center" /> -->
+            </div>
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Fashion & Clothing</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">John McCulling</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Founder / CEO</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+  
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-spray-can-sparkles fa-4x md:mt-8 md:ml-8 ml-5 mt-4 lg:mt-8 lg:ml-8" style="color: #B197FC;"></i>
+            <!-- <img src="C:\Users\a\Downloads\michela-ampolo-7tDGb3HrITg-unsplash.jpg" loading="lazy" alt="Photo by christian ferrer" class="h-full w-full object-cover object-center" /> -->
+            <!-- <img src="https://images.unsplash.com/photo-1532073150508-0c1df022bdd1?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by christian ferrer" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Beauty & Skincare</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Kate Berg</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">CFO</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+  
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-dumbbell fa-4x lg:ml-6 lg:mt-8 md:ml-6 md:mt-8 mt-3 ml-2" style="color: #63E6BE;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Ayo Ogunseinde" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Fitness & Health</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Greg Jackson</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">CTO</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+  
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-tv fa-4x md:ml-6 md:mt-8 lg:ml-6 lg:mt-8 ml-2 mt-4" style="color: #255d88;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Midas Hofstra" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Electronics</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Robert Greyson</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Creative Director</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+  
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-burger fa-4x ml-4 mt-4 md:ml-8 md:mt-7" style="color: #d98954;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Elizeu Dias" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">FMCG / F&B</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">John Roberts</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Investor Relations</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+  
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-shoe-prints fa-4x ml-2 mt-5 md:ml-6 md:mt-8 " style="color: #b4ac8e;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Matheus Ferrero" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Footwear</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Judy Amandez</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Senior Art Director</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+  
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-utensils fa-4x ml-5 mt-4 md:ml-8 md:mt-8" style="color: #d6d7d6;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Leilani Angel" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">HoReCa</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Rahul Williams</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Creative Director</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+  
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-gem fa-4x ml-4 mt-5 md:ml-8 md:mt-8 lg:ml-8 lg:mt-8" style="color: #b4d2f8;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1562904403-a5106bef8319?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Jernej Graj" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Jewellery</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Ari Ferris</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Marketing Analyst</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <!-- <i class="fa-solid fa-burger fa-5x ml-6 mt-6" style="color: #d98954;"></i> -->
+            <i class="fa-solid fa-spa fa-4x ml-3 mt-5 md:ml-7 md:mt-8 lg:ml-7 lg:mt-8" style="color: #f5c2dc;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Elizeu Dias" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Salons & Spa</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">John Roberts</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Investor Relations</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-heart-pulse fa-4x ml-4 mt-5 md:ml-8 md:mt-8 lg:ml-8 lg:mt-8" style="color: #d51010;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Matheus Ferrero" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Healthcare Centres</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Judy Amandez</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Senior Art Director</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-couch fa-4x ml-2.5 mt-5 md:ml-6 md:mt-8 lg:ml-6 lg:mt-8" style="color: #267d63;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Ayo Ogunseinde" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">Home Decor & Furniture</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Greg Jackson</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">CTO</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+
+        <!-- person - start -->
+        <div class="flex flex-col items-center">
+          <div class="mb-2 h-24 w-24 overflow-hidden rounded-full bg-white shadow-lg md:mb-4 md:h-32 md:w-32">
+            <i class="fa-solid fa-box-open fa-4x ml-3 mt-5 md:ml-6 md:mt-8 lg:ml-5 lg:mt-8" style="color: #e1d8a8;"></i>
+            <!-- <img src="https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?auto=format&q=75&fit=crop&w=256" loading="lazy" alt="Photo by Midas Hofstra" class="h-full w-full object-cover object-center" /> -->
+          </div>
+  
+          <div>
+            <div class="text-center font-bold text-indigo-500 md:text-lg">All kinds of retail, online & accessories brands</div>
+            <!-- <div class="text-center font-bold text-indigo-500 md:text-lg">Robert Greyson</div> -->
+            <!-- <p class="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Creative Director</p> -->
+  
+            <!-- social - start -->
+            <!-- <div class="flex justify-center">
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+  
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                  </svg>
+                </a>
+              </div>
+            </div> -->
+            <!-- social - end -->
+          </div>
+        </div>
+        <!-- person - end -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-lime-50 -mr-20">
+  <div class="pb-32 pt-28 mx-auto p-4">
+    <div class="text-5xl text-center mb-32">
+        <strong>Discover Our Features</strong>
+    </div>
+    <div class="container flex lg:px-20 mx-auto">
+        <!-- Tabs and Content -->
+         <div class="lg:w-1/2 w-full lg:-ml-12">
+            <!-- Tab 1 --> 
+            <button onclick="showTab(1)" class="w-full mb-4 p-2 rounded-lg bg-purple-500 text-white flex justify-between items-center text-2xl">
+                Tailored Social Media Strategies 
+                <span id="icon1" class="ml-auto plus-minus">+</span>
+            </button>
+            <div id="content1" class="tab-content active text-xl">
+                <h2>Crafting custom social media strategies to connect authentically, we'll elevate your brand with engaging content and visuals for a strong online presence.</h2>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat, enim vel malesuada elementum, odio risus lacinia est, at gravida mi velit eget ipsum.</p> -->
+            <img src="TAILORED-01.png" alt="Image 1" class="lg:hidden w-full h-auto">
+              
+            </div>
+            <!-- Tab 2 -->
+            <button onclick="showTab(2)" class=" w-full mb-4 p-2 rounded-lg bg-purple-500 text-white flex justify-between items-center text-2xl">
+                Expert Influencer Identification
+                <span id="icon2" class="ml-auto plus-minus">+</span>
+            </button>
+            <div id="content2" class="tab-content text-xl">
+                <h2>Discover perfect influencers to elevate your brand with authentic voices and engaged audiences, forging lasting impactful partnerships.</h2>
+                <!-- <p>Integer congue sem vel sem volutpat, vel posuere orci laoreet. Aliquam erat volutpat.</p> -->
+                <img src="EXPERT INFLUENCER IDENTIFICATION-01.png" alt="Image 2" class="lg:hidden w-full h-auto">
+            
+            </div>
+            <!-- Tab 3 -->
+            <button onclick="showTab(3)" class="w-full mb-4 p-2 rounded-lg bg-purple-500 text-white flex justify-between items-center text-2xl">
+                Captivating Content Creation
+                <span id="icon3" class="ml-auto plus-minus">+</span>
+            </button>
+            <div id="content3" class="tab-content text-xl">
+                <h2>Elevate your brand with custom social media strategies that resonate, creating engaging content and visuals for meaningful connections.</h2>
+                <!-- <p>Proin ac nisl non ligula pharetra congue vel id nunc. Fusce lobortis metus at nulla rhoncus.</p> -->
+            <img src="captivating content creation-01.png" alt="Image 3" class=" lg:hidden w-full h-auto">
+
+            </div>
+            <!-- Tab 4 -->
+            <button onclick="showTab(4)" class="w-full mb-4 p-2 rounded-lg bg-purple-500 text-white flex justify-between items-center text-2xl">
+                Scaling Account in Specific Niche
+                <span id="icon4" class="ml-auto plus-minus">+</span>
+            </button>
+            <div id="content4" class="tab-content text-xl">
+                <h2>Leverage tailored strategies for accelerated growth and unparalleled scaling in your niche.</h2>
+                <!-- <p>Sed vitae augue id mauris scelerisque volutpat eget non est. Vivamus tempus urna at mauris efficitur.</p> -->
+            <img src="SCALING ACCOUNT-01.png" alt="Image 4" class="lg:hidden w-full h-auto">
+
+            </div>
+            <!-- Tab 5 -->
+            <button onclick="showTab(5)" class="w-full mb-4 p-2 rounded-lg bg-purple-500 text-white flex justify-between items-center text-2xl">
+                Real Time Analytics and Reporting
+                <span id="icon5" class="ml-auto plus-minus">+</span>
+            </button>
+            <div id="content5" class="tab-content text-xl">
+                <h2>Gain instant clarity and stay ahead with our advanced analytics and real-time reporting.</h2>
+                <!-- <p>Quisque placerat mauris id tortor efficitur aliquam. Integer vitae diam nec odio dapibus scelerisque.</p> -->
+            <img src="REAL TIME ANALYTICS-01.png" alt="Image 5" class="lg:hidden w-full h-auto">
+                
+            </div>
+        </div> 
+        <!-- Image Area -->
+        <div class="lg:w-2/3 lg:-mr-44 lg:-mt-12">
+            <!-- Only display the default image by default -->
+            <img id="image1" src="TAILORED-01.png" alt="Image 1" class="hidden-on-sm lg:w-auto lg:h-auto">
+            <img id="image2" src="EXPERT INFLUENCER IDENTIFICATION-01.png" alt="Image 2" class="hidden-on-sm lg:w-full lg:h-auto hide-img">
+            <img id="image3" src="captivating content creation-01.png" alt="Image 3" class="hidden-on-sm lg:w-full lg:h-auto hide-img">
+            <img id="image4" src="SCALING ACCOUNT-01.png" alt="Image 4" class="hidden-on-sm lg:w-full lg:h-auto hide-img ">
+            <img id="image5" src="REAL TIME ANALYTICS-01.png" alt="Image 5" class="hidden-on-sm lg:w-full lg:h-auto hide-img ">
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="bg-fuchsia-200 rounded-t-lg text-gray-600 body-font -mr-20">
+    <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+        <a href="PSHgradientback.html" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          <svg xmlns="http://www.w3.org/2000/svg" width="240px" height="60px"> 
+          <!-- fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" -->
+            <image href="PSH logo.png" x="0" y="0" width="240px" height="60px"></image>
+            <!-- <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path> -->
+          </svg>
+          <!-- <span class="ml-3 text-xl">Tailblocks</span> -->
+        </a>
+        <p class="mt-2 text-sm font-semibold text-gray-600">Integrated platform for social media and influencer marketing to drive brand awareness, boost engagement, and maximize reach in the ever evolving digital realm. </p>
+      </div>
+      <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+          <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">&nbsp;&nbsp;</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+            </li>
+          </nav>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-lg mb-3">COMPANY</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a href="PSHAboutUs.html" class="text-gray-600 hover:text-gray-800">About</a>
+            </li>
+            <!-- <li>
+              <a class="text-gray-600 hover:text-gray-800">Community</a>
+            </li> -->
+            <li>
+              <a href="Careers.html" class="text-gray-600 hover:text-gray-800">Careers</a>
+
+            </li>
+            <!-- <li>
+              <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+            </li> -->
+          </nav>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+          <h2 class="title-font text-gray-900 tracking-widest text-lg mb-3 font-semibold">CONTACT US</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a href="cont.html" class="text-gray-600 hover:text-gray-800">Contact Sales</a>
+            </li>
+            <li>
+              <a href="PSHAboutUs.html#reach" class="text-gray-600 hover:text-gray-800">Email Support</a>
+            </li>
+            <!-- <li>
+              <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+            </li>
+            <li>
+              <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+            </li> -->
+          </nav>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+          <h2 class="title-font text-gray-900 tracking-widest text-lg mb-3 font-semibold">LEGAL & POLICIES</h2>
+          <nav class="list-none mb-10">
+            <li>
+              <a href="PrivacyPolicy.html#example-1-smooth" class="text-gray-600 hover:text-gray-800">PSH Trust Centre</a>
+            </li>
+            <li>
+              <a href="PrivacyPolicy.html#example-3-smooth" class="text-gray-600 hover:text-gray-800">Terms of Service</a>
+            </li>
+            <li>
+              <a href="PrivacyPolicy.html#example-2-smooth" class="text-gray-600 hover:text-gray-800">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="PrivacyPolicy.html#example-4-smooth" class="text-gray-600 hover:text-gray-800">Cookie Notice</a>
+            </li>
+            <li>
+              <a href="PrivacyPolicy.html#example-sub-A-smooth" class="text-gray-600 hover:text-gray-800">Creator Terms of Service</a>
+            </li>
+            <li>
+                <a href="PrivacyPolicy.html#example-sub-B-smooth" class="text-gray-600 hover:text-gray-800">Brand Terms of Service</a>
+            </li>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-100">
+      <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+        <p class="text-gray-500 text-sm text-center sm:text-left">© Purple Studio Hub 2023 — All rights reserved.
+          <!-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a> -->
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start ">
+          <a href="https://www.facebook.com/share/gTfADemyapig6eVQ/?mibextid=WC7FNe" class="text-gray-500 hover:text-gray-900">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <!-- <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+          </a> -->
+          <a href="https://www.instagram.com/purplestudiohub?igsh=MThwbWlvcmNlZzE2ZQ%3D%3D&utm_source=qr" class="ml-3 text-gray-500 hover:text-gray-900">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/purple-studio-hub/" class="ml-3 text-gray-500 hover:text-gray-900 mr-32">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+              <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <script>
+        const textElement = document.getElementById('changingText');
+        const placeholderElement = document.getElementById('placeholder');
+
+        const phrases = ['Grow.', 'Innovate.', 'Succeed.'];
+        let currentIndex = 0;
+
+        function changeText() {
+        placeholderElement.style.opacity = 1; // Show placeholder
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % phrases.length;
+            textElement.textContent = phrases[currentIndex];
+            setTimeout(() => {
+            placeholderElement.style.opacity = 0; // Hide placeholder
+            }, 500); // Adjust this delay to match the transition duration in CSS
+        }, 500); // Adjust this delay to match the transition duration in CSS
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+        setInterval(changeText, 3000); // Change text every 3 seconds
+        });
+
+        // // function changeColor() {
+        //     // if(clickEvent === "step2"){
+        //         document.getElementById("step2").addEventListener("click", function() {
+        //         document.getElementById("text2").classList.toggle("text-rose-700");
+        //         document.getElementById("icon2").classList.toggle("stroke-rose-950");
+        //         document.getElementById("icon2").classList.toggle("fill-rose-500");
+        //         document.getElementById("step2").classList.toggle("border-b-2");
+        //         document.getElementById("icon2").classList.toggle("border-rose-500");
+        //         });
+        //     // }
+
+        //     // if(clickEvent === "step3"){
+        //         document.getElementById("step3").addEventListener("click", function() {
+        //         document.getElementById("text3").classList.toggle("text-green-700");
+        //         document.getElementById("icon3").classList.toggle("stroke-emerald-950");
+        //         document.getElementById("icon3").classList.toggle("fill-green-500");
+        //         document.getElementById("step3").classList.toggle("border-b-2");
+        //         document.getElementById("icon3").classList.toggle("border-green-500");
+        //         });
+        //     // }
+
+        //     // else{
+        //         document.getElementById("step1").addEventListener("click", function() {
+        //         document.getElementById("text1").classList.toggle("text-fuchsia-700");
+        //         document.getElementById("icon1").classList.toggle("stroke-fuchsia-950");
+        //         document.getElementById("icon1").classList.toggle("fill-fuchsia-500");
+        //         document.getElementById("step1").classList.toggle("border-b-2");
+        //         document.getElementById("icon1").classList.toggle("border-fuchsia-500");
+        //         });
+
+        //     // }
+        //     // }
+        // // Function to change content based on step
+        // function changeContent(step) {
+        //     // Example content for each step
+        //     // const contents = [
+        //     // { title: "Master Cleanse Reliac Heirloom", description: "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag." },
+        //     // // Add content for other steps
+        //     // { title: "Raw Denim Heirloom Man Braid", description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug." },
+        //     // { title: "Raw Denim Heirloom Man Braid Selfies Wayfarers", description: "Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug"}
+        //     // ];
+        //     document.getElementById('step1Content').style.display = 'none';
+        //     document.getElementById('step2Content').style.display = 'none';
+        //     document.getElementById('step3Content').style.display = 'none';
+            
+        //     document.getElementById('step' + step + 'Content').style.display = 'block';
+        //     // Get the content elements
+        //     const titleElement = document.getElementById('title');
+        //     const descriptionElement = document.getElementById('description');
+            
+        //     // Update content based on step
+        //     const content = contents[step - 1]; // Adjust index
+            
+        //     titleElement.textContent = content.title;
+        //     descriptionElement.textContent = content.description;
+        // }
+
+        function showTa(tabNum) {
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('conten' + i).style.display = 'none';
+                document.getElementById('tab' + i).classList.remove('active');
+            }
+            document.getElementById('conten' + tabNum).style.display = 'block';
+            document.getElementById('tab' + tabNum).classList.add('active');
+        }
+
+        // Show the default tab (Tab 1)
+        showTa(1);
+
+            // Function to show tab content
+            function showTab(tabNumber) {
+            // Hide all tab contents and images
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('content' + i).classList.remove('active');
+                document.getElementById('icon' + i).classList.remove('rotate');
+                document.getElementById('image' + i).classList.add('hide-img');
+            }
+            // Show selected tab content
+            document.getElementById('content' + tabNumber).classList.add('active');
+            // Toggle plus-minus icon
+            document.getElementById('icon' + tabNumber).classList.toggle('rotate');
+            // Show respective image
+            document.getElementById('image' + tabNumber).classList.remove('hide-img');
+        }
+
+        // Show the default tab (Tab 1) and image (Image 1)
+        showTab(1);
+
+        
+        //   const carouselSlide = document.querySelector(".carousel-slide");
+        //   const carouselImages = document.querySelectorAll(".carousel-slide img");
+  
+        //   const prevBtn = document.querySelector("#prevBtn");
+        //   const nextBtn = document.querySelector("#nextBtn");
+  
+        //   let counter = 1;
+        //   let durationAnimation = 400; // ms
+        //   let activeAnimation = "transform " + durationAnimation + "ms ease-in-out";
+        //   const size = carouselImages[0].clientWidth;
+        //   const updateSlideTransformX = () => {
+        //   carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
+        //   };
+        //   const changeActiveAnimation = off => {
+        //   carouselSlide.style.transition = off === false ? "" : activeAnimation;
+        //   };
+  
+        //   updateSlideTransformX();
+  
+        //     let interval = 1000; // 1000 * 3 sec
+        //     setInterval(function() {
+        //     // enable animation
+        //     if (counter === 1) changeActiveAnimation()
+            
+        //     // to next slide
+        //     counter++;
+        //     updateSlideTransformX();
+    
+        //     if (counter >= carouselImages.length - 2) {
+        //         counter = 1;
+        //         setTimeout(() => {
+        //         // disable animation & jump to slide 1
+        //         changeActiveAnimation(false);
+        //         updateSlideTransformX();
+        //         }, durationAnimation);
+        //     }
+        //     }, interval);
+    
+    
+        //     const carouselSlide2 = document.querySelector(".carousel-slide2");
+        //     const carouselImages2 = document.querySelectorAll(".carousel-slide2 img");
+    
+        //     const prevBtn2 = document.querySelector("#prevBtn");
+        //     const nextBtn2 = document.querySelector("#nextBtn");
+    
+        //     let counter2 = 1;
+        //     let durationAnimation2 = 400
+        //     let activeAnimation2 = "transform " + durationAnimation2 + "ms ease-in-out";
+        //     const size2 = carouselImages2[0].clientWidth;
+        //     const updateSlideTransformX2 = () => {
+        //     carouselSlide2.style.transform = "translateX(" + size * counter2 + "px)";
+        //     };
+        //     const changeActiveAnimation2 = off => {
+        //     carouselSlide2.style.transition = off === false ? "" : activeAnimation2;
+        //     };
+    
+        //     updateSlideTransformX2();
+    
+        //     let interval2 = 1000; // 1000 * 3 sec
+        //     setInterval(function() {
+        //     // enable animation
+        //     if (counter2 === 1) changeActiveAnimation2()
+            
+        //     // to next slide
+        //     counter2++;
+        //     updateSlideTransformX2();
+    
+        //     if (counter2 >= carouselImages2.length - 2) {
+        //         counter2 = 1;
+        //         setTimeout(() => {
+        //         // disable animation & jump to slide 1
+        //         changeActiveAnimation2(false);
+        //         updateSlideTransformX2();
+        //         }, durationAnimation2);
+        //     }
+        //     }, interval2);
+
+  //         // Get carousel and items
+  // const carousel = document.querySelector('.carousel');
+  // const carouselItems = document.querySelectorAll('.carousel-item');
+  // const totalItems = carouselItems.length;
+  // let currentIndex = 0;
+
+  // // Function to slide carousel
+  // function slideNext() {
+  //   currentIndex = (currentIndex + 1) % totalItems;
+  //   updateCarousel();
+  // }
+
+  // // Function to update carousel position
+  // function updateCarousel() {
+  //   const offset = -(currentIndex * 20);
+  //   carousel.style.transition = 'transform 1s ease-in-out';
+  //   carousel.style.transform = `translateX(${offset}%)`;
+  // }
+
+  // // Automatically slide every 4 seconds
+  // setInterval(() => {
+  //   slideNext();
+  //   // Pause for 2 seconds after the second slide
+  //   if (currentIndex === 1) {
+  //     setTimeout(() => {
+  //       currentIndex = (currentIndex + 4) % totalItems;
+  //       updateCarousel();
+  //     }, 2000);
+  //   }
+  // }, 4000);
+    </script>
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+          slidesPerView: getSlidesPerView(), // Initial slides per view based on screen size
+          spaceBetween: 10,
+          loop: true,
+          autoplay: {
+              delay: 2500,
+              disableOnInteraction: false,
+          },
+          pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+          },
+          breakpoints: {
+              200:{
+                 slidesPerView: 2,
+                 spaceBetween:30,
+              },
+              640: {
+                  slidesPerView: 3, // Number of slides per view for small screens (md)
+                 spaceBetween:30,
+
+              },
+              768: {
+                  slidesPerView: 4, // Number of slides per view for medium screens (md)
+                 spaceBetween:30,
+
+              },
+              1024: {
+                  slidesPerView: 5, // Number of slides per view for large screens (lg)
+                 spaceBetween:30,
+
+              }
+          }
+      });
+  
+      function getSlidesPerView() {
+          if (window.innerWidth < 200) {
+              return 2;
+          } 
+          else if(window.innerWidth < 640){
+              return 3;
+          }
+          else if (window.innerWidth < 800) {
+              return 5;
+          } else {
+              return 1;
+          }
+      }
+  
+      // Update slides per view on window resize
+      window.addEventListener('resize', function () {
+          swiper.params.slidesPerView = getSlidesPerView();
+          swiper.update();
+      });
+  </script>
+</body>
+</html>
