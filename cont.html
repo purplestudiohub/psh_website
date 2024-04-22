@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="cont.css">
+    <script src="https://cdn.tailwindcss.com"!important></script>
+    <script src="https://kit.fontawesome.com/4a3b660be9.js" crossorigin="anonymous"!important></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <!-- <script src="https://www.google.com//api.js" async defer !important></script> -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <style>
+              /* Custom styles */
+              .contact-section {
+            display: flex;
+            justify-content: space-between;
+        }
+        .details {
+            width: 45%;
+            padding: 20px;
+        }
+        .details h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .details p {
+            margin-bottom: 10px;
+        }
+        .quirky-line {
+            /* font-size: 18px; */
+            font-style: italic;
+            color: #666;
+        }
+        .calendar {
+            width: 45%;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+            }
+            .details, .calendar {
+                width: 100%;
+            }
+        }
+        .rotating-image {
+          width: 100px;
+          /* height: 100px; */
+          animation: rotate 6s linear infinite; /* Animation for rotation and pause */
+        }
+
+        @keyframes rotate {
+          0%, 100% { transform: rotate(0deg); } /* Start and end at 0 degrees */
+          50% { transform: rotate(360deg); } /* Rotate for 3 seconds */
+        }
+
+        .contact-container{
+          height: 100vh;
+          padding: 25px;
+          /* padding-top: 44px; */
+          /* padding-bottom: 44px; */
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          background-color: antiquewhite;
+        }
+        .contact-left{
+          display: flex ;
+          flex-direction: column;
+          align-items: start;
+          gap: 20px;
+        }
+        .contact-left-title h2{
+          font-weight: 600px;
+          color: blueviolet;
+          font-size: 40px;
+          margin-bottom: 5px;
+        }
+        .contact-left-title hr{
+          border: none;
+          width: 120px;
+          height: 5px;
+          background-color: #a363aa;
+          border-radius: 10px;
+          margin: 20px;
+        }
+        .contact-inputs{
+          width: 400px;
+          height: 50px;
+          border: none;
+          outline: none;
+          padding-left: 25px;
+          font-weight: 500;
+          color: #666 ;
+          border-radius: 50px;
+        }
+        .contact-left textarea
+        {
+          height: 200px;
+          padding-top: 15px;
+          /* padding-bottom: 15px; */
+          border-radius: 20px;
+        }
+        .contact-inputs:focus{
+          border: 2px solid #ff994f;
+        }
+        .contact-inputs::placeholder{
+          color: #a9a9a9;
+        }
+        .contact-left button{
+          display: flex;
+          align-items: center;
+          padding: 15px 30px;
+          font-size: 16px;
+          color: white;
+          gap: 10px;
+          border: none;
+          border-radius: 50px;
+          background:linear-gradient(270deg, #ff994f, #fa6d86);
+          cursor: pointer;
+        }
+        .contact-left button img{
+          height: 15px;
+        }
+        .contact-right img{
+          width: 500px;
+        }
+        @media (max-width:800px) {
+          .contact-inputs{
+            width: 80vw;
+          }
+          .contact-right{
+            display: none;
+          }
+        }
+    </style>
+</head>
+<body>
+  <header class="text-zinc-950 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a href="PSHgradientback.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="270px" height="60px">
+
+          <image href="PSH logo.png" alt="none" x="0" y="0" width="270px" height="70px">
+            
+        </svg>
+        
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-medium">
+        <a href="PSHAboutUs.html" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer">About Us</a>
+        <a href="PSHgradientback.html#services" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer">Services</a>
+        <a href="Careers.html" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer">Careers</a>
+        <a href="Resources.html" class="mr-12 ml-7  hover:text-violet-800 text-lg hover:cursor-pointer">Resources</a>
+      </nav>
+      <a href="cont.html">
+          <button class="inline-flex items-center bg-zinc-950 text-lg text-zinc-50 border-0 py-1 px-3 focus:outline-none hover:text-zinc-950 hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Schedule a call
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </button>
+      </a>
+    </div>
+  </header>
+    <!-- <header class="text-zinc-950 body-font" id="nav">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="240px" height="60px"> -->
+                <!-- fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" -->
+              <!-- <image href="C:\Users\a\Downloads\image-removebg-preview (25).png" x="0" y="0" width="240px" height="70px">---- -->
+                <!-- <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path> -->
+            <!-- </svg>----- -->
+            <!-- <span class="ml-3 text-xl">Tailblocks</span> -->
+          <!-- </a>
+          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center font-medium">
+            <a class="mr-12 ml-7 hover:text-violet-800">About Us</a>
+            <a class="mr-12 ml-7 hover:text-violet-800">Services</a>
+            <a class="mr-12 ml-7 hover:text-violet-800">Careers</a>
+            <a class="mr-12 ml-7  hover:text-violet-800">Resources</a>
+          </nav>
+          <a href="cont.html">  
+            <button class="inline-flex items-center bg-zinc-950 text-zinc-50 border-0 py-1 px-3 focus:outline-none hover:text-zinc-950 hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Schedule a call
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </a>
+        </div> 
+      </header> -->
+      <!-- <div class="sticky-tab-container" id="tabContainer">
+        <div class="tab" onclick="openTab('image1')">Tab 1</div>
+        <div class="tab" onclick="openTab('image2')">Tab 2</div>
+        <div class="tab" onclick="openTab('image3')">Tab 3</div>
+      </div>-->
+      <section class="m-30">
+        <!-- <div class="text-center my-9 mx-auto text-4xl">
+          Step into the limelight! <br><br><br> With our savvy social strategies, influencer prowess, engaging UGC platforms, and brand capture, we're your ticket to digital stardom. 
+        </div> -->
+        <div class="container mx-auto p-8 w-full h-full">
+          <div class="contact-section">
+              <!-- Contact Details -->
+                <div class="p-10   lg:w-1/3 w-full bg-gradient-to-b from-white via-purple-100 via-purple-200 to-purple-400 rounded-lg w-1/3">
+                <div class="flex justify-center mb-16">
+                  <a href="PSHgradientback.html"><img src="D:\imgs for PSH\[removal.ai]_ca3d5503-0b03-410d-91b4-659eeb5b7b92-image.png" alt="Rotating Image" class="rotating-image"></a>
+                </div>
+                  <!-- <br><br><br> -->
+                  <h2 class=" text-2xl md:text-2xl lg:text-3xl text-black lg:mb-32 md:mb-16 mb-10">Let's shape your brand's narrative and elevate your online presence together!</h2>
+                  <!-- <br><br><br>
+                  <br><br><br> -->
+                  <p class="text-xl mr-4 mb-4 md:mb-0 lg:mb-0"><a href="mailto:pooja@purplestudiohub.com"> Email: <span class="text-blue-900 underline">pooja@purplestudiohub.com</span> </a></p>
+                  <p class="text-xl"><a href="tel:+91 7011182346 "> Phone: <span class="text-blue-900 underline">+91 70111 82346</span> </a></p>
+                  <br><br><br>
+                    <a href="https://www.instagram.com/purplestudiohub?igsh=MThwbWlvcmNlZzE2ZQ%3D%3D&utm_source=qr"><i class="fa-brands fa-instagram fa-2x mr-3"></i></a>
+                    <a href="https://www.facebook.com/share/gTfADemyapig6eVQ/?mibextid=WC7FNe"><i class="fa-brands fa-facebook fa-2x mr-3"></i></a>
+                    <!-- <a href="www.youtube.com"><i class="fa-brands fa-youtube fa-2x mr-3"></i></a> -->
+                    <a href="https://www.linkedin.com/company/purple-studio-hub/"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+                  <!-- <p class="quirky-line">Unlock the power of social media, influencer marketing, and UGC websites with us!</p> -->
+              </div>
+              <!-- Calendar -->
+              <div class="calendar w-2/3 sm:w-full md:w-full">
+                  <!-- <h2>Schedule a Meeting</h2> -->
+                  <!-- Calendly inline widget begin -->
+                  <!-- <div class="calendly-inline-widget" data-url="https://calendly.com/sehajpreet-purple/30min" style="min-width:320px;height:700px;"></div> -->
+                  <div class="calendly-inline-widget" data-url="https://calendly.com/pooja-22m/30min" style="min-width:320px;height:700px;"></div>
+                  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                  <!-- Calendly inline widget end -->
+                  <!-- Calendar component can be added here -->
+              </div>
+          </div>
+      </div>
+      
+      </section>
+      <!-- Tab content (images) -->
+      <!--<img id="image1" class="image" src="image1.jpg" alt="img1">
+      <img id="image2" class="image" src="image2.jpg" alt="img2">
+      <img id="image3" class="image" src="image3.jpg" alt="img3"> -->
+      
+      <!-- <br><br><br>
+      <br><br><br>
+      <br><br><br> -->
+
+      <section class="mx-9 mb-4">
+        <div class="contact-container h-full rounded-lg">
+          <form action="https://api.web3forms.com/submit" id="cont-form" method="POST" class="contact-left">
+            <div class="contact-left-title">
+              <h2>Get in Touch
+              </h2>
+              <hr class="">
+            </div>
+            <input type="hidden" name="access_key" value="f0f7eb3f-4317-42a9-a52e-863b8e6f01a6">
+            <input type="text" name="company" placeholder="Company Name" class="contact-inputs" required>
+            <input type="text" name="name" placeholder="Name" class="contact-inputs" required>
+            <input type="email" name="email" placeholder="Work email" id="email" class="contact-inputs" required>
+            <small id="emailError" class="text-red-300 hidden">Please enter a valid email address.</small>
+            <input type="tel" name="contact number" id="email" placeholder="Contact Number" class="contact-inputs" required>
+            <!-- <input type="text" name="service" placeholder="Service" class="contact-inputs" required> -->
+            <select type="text" name="service" placeholder="Select a service" class="contact-inputs" required>
+              <option value="Select a service">Select a service</option>
+              <option value="Social Media Marketing">Social Media Marketing</option>
+              <option value="Influencer Marketing">Influencer Marketing</option>
+              <option value="User-Generated Content">User-Generated Content</option>
+              <option value="Brand Shoots">Brand Shoots</option>
+            </select>
+            <textarea name="message" placeholder="Brief/Requirements" class="contact-inputs" required></textarea>
+            <!-- <input type="hidden" name="access_key" value="50b2fe65-b00b-4b9e-ad62-3ba471098be2"> -->
+            <!-- <div class="h-captcha" data-sitekey="042241ef-4130-48e0-a125-9733609c558c" data-captcha="true"></div> -->
+            <!-- <div class="g-recaptcha" data-sitekey="6LdVkpkpAAAAAAQucK6H3Es1lZOseD9KvFIJIQiG"> -->
+            <!-- </div> -->
+
+            <button type="submit" onclick="validateEmail()" onclick="myfunction()"> Submit </button>
+          </form>
+          <div class="contact-right">
+            <img src="C:\Users\a\Desktop\PSH_website\c-us-removebg-preview.png" alt="">
+          </div>
+        </div>
+      </section>
+
+
+      <footer class="bg-fuchsia-200 rounded-t-lg text-gray-600 body-font ">
+        <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+            <a href="PSHgradientback.html" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" width="240px" height="60px"> 
+              <!-- fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" -->
+                <image href="PSH logo.png" x="0" y="0" width="240px" height="60px"></image>
+                <!-- <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path> -->
+              </svg>
+              <!-- <span class="ml-3 text-xl">Tailblocks</span> -->
+            </a>
+            <p class="mt-2 text-sm font-semibold text-gray-600">Integrated platform for social media and influencer marketing to drive brand awareness, boost engagement, and maximize reach in the ever evolving digital realm. </p>
+          </div>
+          <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">&nbsp;&nbsp;</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+              <h2 class="title-font font-semibold text-gray-900 tracking-widest text-lg mb-3">COMPANY</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a href="PSHAboutUs.html" class="text-gray-600 hover:text-gray-800">About</a>
+                </li>
+                <li>
+                  <!-- <a class="text-gray-600 hover:text-gray-800">Community</a> -->
+                </li>
+                <li>
+                  <a href="Careers.html" class="text-gray-600 hover:text-gray-800">Careers</a>
+
+                </li>
+                <!-- <li>
+                  <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                </li> -->
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+              <h2 class="title-font text-gray-900 tracking-widest text-lg mb-3 font-semibold">CONTACT US</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a href="cont.html" class="text-gray-600 hover:text-gray-800">Contact Sales</a>
+                </li>
+                <li>
+                  <a href="PSHAboutUs.html#reach" class="text-gray-600 hover:text-gray-800">Email Support</a>
+                </li>
+                <!-- <li>
+                  <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                </li> -->
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4 font-semibold">
+              <h2 class="title-font text-gray-900 tracking-widest text-lg mb-3 font-semibold">LEGAL & POLICIES</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a href="PrivacyPolicy.html#example-1-smooth" class="text-gray-600 hover:text-gray-800">PSH Trust Centre</a>
+                </li>
+                <li>
+                  <a href="PrivacyPolicy.html#example-3-smooth" class="text-gray-600 hover:text-gray-800">Terms of Service</a>
+                </li>
+                <li>
+                  <a href="PrivacyPolicy.html#example-2-smooth" class="text-gray-600 hover:text-gray-800">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="PrivacyPolicy.html#example-4-smooth" class="text-gray-600 hover:text-gray-800">Cookie Notice</a>
+                </li>
+                <li>
+                  <a href="PrivacyPolicy.html#example-sub-A-smooth" class="text-gray-600 hover:text-gray-800">Creator Terms of Service</a>
+                </li>
+                <li>
+                    <a href="PrivacyPolicy.html#example-sub-B-smooth" class="text-gray-600 hover:text-gray-800">Brand Terms of Service</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© Purple Studio Hub 2023 — All rights reserved.
+              <!-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a> -->
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start ">
+              <a href="https://www.facebook.com/share/gTfADemyapig6eVQ/?mibextid=WC7FNe" class="text-gray-500 hover:text-gray-900">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <!-- <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a> -->
+              <a href="https://www.instagram.com/purplestudiohub?igsh=MThwbWlvcmNlZzE2ZQ%3D%3D&utm_source=qr" class="ml-3 text-gray-500 hover:text-gray-900">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/company/purple-studio-hub/" class="ml-3 text-gray-500 hover:text-gray-900 mr-32">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
+
+
+      <!-- <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" width="240px" height="60px">  -->
+              <!-- fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" -->
+                <!-- <image href="C:\Users\a\Downloads\image-removebg-preview (25).png" x="0" y="0" width="240px" height="60px"></image> -->
+                <!-- <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path> -->
+              <!-- </svg>---- -->
+              <!-- <span class="ml-3 text-xl">Tailblocks</span> -->
+            <!-- </a>
+            <p class="mt-2 text-sm text-gray-500">Integrated platform for social media and influencer marketing to drive brand awareness, boost engagement, and maximize reach in the ever evolving digital realm. </p>
+          </div>
+          <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">&nbsp;&nbsp;</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">&nbsp;&nbsp;</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">COMPANY</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">About</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Community</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Careers</a>
+                </li> -->
+                <!-- <li>
+                  <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                </li> -->
+              <!-- </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CONTACT US</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Contact Sales</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Email Support</a>
+                </li> -->
+                <!-- <li>
+                  <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                </li> -->
+              <!-- </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">LEGAL & POLICIES</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">PSH Trust Centre</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Terms of Service</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Privacy Policy</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Cookie Notice</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Creator Terms of Service</a>
+                </li>
+                <li>
+                    <a class="text-gray-600 hover:text-gray-800">Brand Terms of Service</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© Purple Studio Hub 2023 — All rights reserved.
+               <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a> 
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start ">
+              <a class="text-gray-500 hover:text-gray-900">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>-->
+              <!-- <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a> -->
+              <!-- <a class="ml-3 text-gray-500 hover:text-gray-900">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500 hover:text-gray-900 mr-32">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer> -->
+
+
+
+
+      <!-- <script>
+          Function to open the tab content
+          function openTab(imageId) {
+          // Hide all images
+          var images = document.getElementsByClassName('image');
+          for (var i = 0; i < images.length; i++) {
+            images[i].style.display = 'none';
+          }
+          
+          Show the selected image
+          document.getElementById(imageId).style.display = 'block';
+          }
+
+          Function to make tab container sticky
+          window.onscroll = function() {stickyTabContainer()};
+
+          var tabContainer = document.getElementById("tabContainer");
+          var navHeight = document.getElementById("nav").offsetHeight; // Assuming navigation bar has id="nav"
+
+          function stickyTabContainer() {
+            if (window.pageYOffset > navHeight) {
+              tabContainer.style.position = "fixed";
+            } else {
+              tabContainer.style.position = "static";
+            }
+          }
+      </script> -->
+      <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+      <script src="https://web3forms.com/client/script.js" async defer></script>
+<script>
+  function validateEmail() {
+    var emailInput = document.getElementById("email");
+    var emailError = document.getElementById("emailError");
+    
+    // List of known work email domains
+    var workEmailDomains = ["example.com", "company.org", "department.gov", "university.edu", "consultingfirm.com"];
+    
+    // var isValidEmail = false;
+    var email = emailInput.value.trim();
+    var domain = email.substring(email.lastIndexOf("@") + 1);
+
+    // Check if the entered domain is in the list of work email domains
+    if (workEmailDomains.includes(domain)) {
+      // isValidEmail = true;
+      emailError.style.display = "none";
+    }
+    else{
+      emailError.style.display = "block";
+      event.preventDefault(); // Prevent form submission
+    }
+
+    // Display error message if email is not valid
+    // if (!isValidEmail) {
+    //   emailError.style.display = "none";
+    //   event.preventDefault(); // Prevent form submission
+    // } else {
+    //   emailError.style.display = "block";
+    // }
+  }
+</script>
+<!-- <script src="https://web3forms.com/client/script.js" async defer></script> -->
+<script>
+  const form = document.getElementById('cont-form');
+  
+  form.addEventListener('submit', function(e) {
+  
+      const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+  
+      if (!hCaptcha) {
+          e.preventDefault();
+          alert("Please fill out captcha field")
+          return
+      }
+  });
+  
+  </script>
+  
+
+</body>
+</html>
