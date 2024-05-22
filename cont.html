@@ -59,11 +59,14 @@
           50% { transform: rotate(360deg); } /* Rotate for 3 seconds */
         }
 
+        /*  */
         .contact-container{
           height: 100vh;
           padding: 25px;
           /* padding-top: 44px; */
           /* padding-bottom: 44px; */
+          /* max-width:500px; */
+          /* margin:0 auto; */
           display: flex;
           align-items: center;
           justify-content: space-evenly;
@@ -130,20 +133,26 @@
         .contact-right img{
           width: 500px;
         }
-        @media (max-width:800px) {
+        @media (max-width:768px) {
           .contact-inputs{
-            width: 80vw;
+            width: 100%;
+            /* margin: 0; */
           }
           .contact-right{
             display: none;
           }
         }
+        /* @media(max-width:768px){
+          .form-container{
+            max-width: 100%;
+          }
+        } */
     </style>
 </head>
 <body>
   <header class="text-zinc-950 body-font">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <a href="PSHgradientback.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <a href="PSH.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
         <svg xmlns="http://www.w3.org/2000/svg" width="270px" height="60px">
 
           <image href="assets/PSH logo.png" alt="none" x="0" y="0" width="270px" height="70px">
@@ -153,7 +162,7 @@
       </a>
       <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-medium">
         <a href="PSHAboutUs.html" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer">About Us</a>
-        <a href="PSHgradientback.html#services" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer">Services</a>
+        <a href="PSH.html#services" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer">Services</a>
         <a href="Careers.html" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer">Careers</a>
         <a href="Resources.html" class="mr-12 ml-7  hover:text-violet-800 text-lg hover:cursor-pointer">Resources</a>
       </nav>
@@ -175,14 +184,14 @@
               <!-- Contact Details -->
                 <div class="p-10   lg:w-1/3 w-full bg-gradient-to-b from-white via-purple-100 via-purple-200 to-purple-400 rounded-lg w-1/3">
                 <div class="flex justify-center mb-16">
-                  <a href="PSHgradientback.html"><img src="assets/psh_logo_cont.png" alt="Rotating Image" class="rotating-image"></a>
+                  <a href="PSH.html"><img src="assets/psh_logo_cont.png" alt="Rotating Image" class="rotating-image"></a>
                 </div>
                   <!-- <br><br><br> -->
                   <h2 class=" text-2xl md:text-2xl lg:text-3xl text-black lg:mb-32 md:mb-16 mb-10">Let's shape your brand's narrative and elevate your online presence together!</h2>
                   <!-- <br><br><br>
                   <br><br><br> -->
                   <p class="text-xl mr-4 mb-4 md:mb-0 lg:mb-0"><a href="mailto:pooja@purplestudiohub.com"> Email: <span class="text-blue-900 underline">pooja@purplestudiohub.com</span> </a></p>
-                  <p class="text-xl"><a href="tel:+91 7011182346 "> Phone: <span class="text-blue-900 underline">+91 70111 82346</span> </a></p>
+                  <!-- <p class="text-xl"><a href="tel:+91 7011182346 "> Phone: <span class="text-blue-900 underline">+91 70111 82346</span> </a></p> -->
                   <br><br><br>
                     <a href="https://www.instagram.com/purplestudiohub?igsh=MThwbWlvcmNlZzE2ZQ%3D%3D&utm_source=qr"><i class="fa-brands fa-instagram fa-2x mr-3"></i></a>
                     <a href="https://www.facebook.com/share/gTfADemyapig6eVQ/?mibextid=WC7FNe"><i class="fa-brands fa-facebook fa-2x mr-3"></i></a>
@@ -206,7 +215,7 @@
       </section>
 
       <section class="mx-9 mb-4">
-        <div class="contact-container h-full rounded-lg">
+        <div class="contact-container h-full rounded-lg form-container">
           <form action="https://api.web3forms.com/submit" id="cont-form" method="POST" class="contact-left">
             <div class="contact-left-title">
               <h2>Get in Touch
@@ -245,7 +254,7 @@
       <footer class="bg-fuchsia-200 rounded-t-lg text-gray-600 body-font ">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-            <a href="PSHgradientback.html" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <a href="PSH.html" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
               <svg xmlns="http://www.w3.org/2000/svg" width="240px" height="60px"> 
               <!-- fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" -->
                 <image href="assets/PSH logo.png" x="0" y="0" width="240px" height="60px"></image>

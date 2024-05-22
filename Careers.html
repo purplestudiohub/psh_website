@@ -32,6 +32,11 @@
           color: #666 ;
           border-radius: 50px;
         }
+        @media (max-width:768px) {
+          .contact-inputs{
+            width: 100%;
+            margin: 0 auto;
+          }}
         .contact-left textarea
         {
           height: 200px;
@@ -49,7 +54,7 @@
 <body>
     <header class="text-zinc-950 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a href="PSHgradientback.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+          <a href="PSH.html" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="270px" height="60px">
  
               <image href="assets/PSH logo.png" alt="none" x="0" y="0" width="270px" height="70px">
@@ -59,7 +64,7 @@
           </a>
           <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center font-medium">
             <a href="PSHAboutUs.html" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer rounded-lg hover:border-b-4 border-violet-500 font-semibold">About Us</a>
-            <a href="PSHgradientback.html#services" onclick="scrollToSection('services')" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer hover:border-b-4 border-violet-500 rounded-lg font-semibold">Services</a>
+            <a href="PSH.html#services" onclick="scrollToSection('services')" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer hover:border-b-4 border-violet-500 rounded-lg font-semibold">Services</a>
             <a href="Careers.html" class="mr-12 ml-7 hover:text-violet-800 text-lg hover:cursor-pointer font-semibold hover:border-b-4 border-violet-500 rounded-lg">Careers</a>
             <a href="Resources.html" class="mr-12 ml-7  hover:text-violet-800 text-lg hover:cursor-pointer font-semibold hover:border-b-4 border-violet-500 rounded-lg">Resources</a>
           </nav>
@@ -218,7 +223,7 @@
                             <input type="hidden" name="access_key" value="f0f7eb3f-4317-42a9-a52e-863b8e6f01a6">
                             <input type="text" name="name" placeholder="Name *" class="contact-inputs focus:ring-orange-100" required>
                             <input type="email" name="email" placeholder="Email *" class="contact-inputs focus:ring-orange-100" required>
-                            <input type="position" name="position" placeholder="Brand Partnerships Executive" value="Brand Partnerships Executive" class="contact-inputs cursor-not-allowed focus:ring-orange-100" readonly>
+                            <input type="position" name="position" placeholder="Brand Partnerships Executive" value="Brand Partnerships Executive" class="truncate contact-inputs cursor-not-allowed focus:ring-orange-100" readonly>
                             <textarea name="message" placeholder="Describe why you are a great fit for this role in 300 words.*" class="contact-inputs focus:ring-orange-100"></textarea>
                             <!-- <label for="cv" class="font-semibold">Upload your CV<span class="required mx-1 text-red-700">*</span>:</label> -->
                             <!--  <input type="file" id="cv" class="bg-white" name="cv" accept=".pdf, .doc, .docx">
@@ -324,10 +329,10 @@
                                 </p>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <!-- <div class="flex items-center p-4   md:p-5 border-t border-gray-200 rounded-b">
                                 <button data-modal-hide="small-modal-2" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
                                 <button data-modal-hide="small-modal-2" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Decline</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -457,10 +462,10 @@
                                     
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                                 <button data-modal-hide="small-modal-2" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
                                 <button data-modal-hide="small-modal-2" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Decline</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -585,10 +590,10 @@
                                 </p>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                                 <button data-modal-hide="small-modal-3" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
                                 <button data-modal-hide="small-modal-3" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Decline</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -710,10 +715,10 @@
                                 </p>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                                 <button data-modal-hide="small-modal-4" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
                                 <button data-modal-hide="small-modal-4" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Decline</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -738,7 +743,7 @@
                                 <input type="hidden" name="access_key" value="f0f7eb3f-4317-42a9-a52e-863b8e6f01a6">
                                 <input type="text" name="name" placeholder="Name *" class="contact-inputs focus:ring-orange-100" required>
                                 <input type="email" name="email" placeholder="Email *" class="contact-inputs focus:ring-orange-100" required>
-                                <input type="position" name="position" placeholder="Paid Influencer Management Executive" value="Paid Influencer Management Executive" class="contact-inputs cursor-not-allowed focus:ring-orange-100" readonly>
+                                <input type="position" name="position" placeholder="Paid Influencer Management Executive" value="Paid Influencer Management Executive" class="truncate contact-inputs cursor-not-allowed focus:ring-orange-100" readonly>
                                 <textarea name="message" placeholder="Describe why you are a great fit for this role in 300 words.*" class="contact-inputs focus:ring-orange-100"></textarea>
                                 <textarea type="url" id="resume" name="resume" placeholder="Please upload your CV on Google Drive or Dropbox and paste the public link here.*" required class="contact-inputs focus:ring-orange-100"></textarea>
                                 <button type="submit" class="bg-purple-600 hover:bg-purple-900 mx-auto rounded-full px-5 py-3 text-white font-semibold"> Submit</button>
@@ -830,10 +835,10 @@
                                 </p>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                                 <button data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
                                 <button data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Decline</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -858,7 +863,7 @@
                                 <input type="hidden" name="access_key" value="f0f7eb3f-4317-42a9-a52e-863b8e6f01a6"><br><br>
                                 <input type="text" name="name" placeholder="Name *"   class="contact-inputs focus:ring-orange-100" required>
                                 <input type="email" name="email" placeholder="Email *" class="contact-inputs focus:ring-orange-100" required>
-                                <input type="position" name="position" placeholder="Performance & Digital Marketing Executive" value="Performance & Digital Marketing Executive" class="contact-inputs cursor-not-allowed" readonly>
+                                <input type="position" name="position" placeholder="Performance & Digital Marketing Executive" value="Performance & Digital Marketing Executive" class="truncate contact-inputs cursor-not-allowed" readonly>
                                 <textarea name="message" placeholder="Describe why you are a great fit for this role in 300 words. *" class="contact-inputs pr-3 focus:ring-orange-100" required></textarea>
                                 <textarea type="url" id="resume" name="resume" placeholder="Please upload your CV on Google Drive or Dropbox and paste the public link here.*" required class="contact-inputs focus:ring-orange-100"></textarea>
         
@@ -950,10 +955,10 @@
                                 </p>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                                 <button data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
                                 <button data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Decline</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1067,10 +1072,10 @@
                                 </p>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                                 <button data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
                                 <button data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Decline</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1190,10 +1195,10 @@
                                 </p>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                                 <button data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
                                 <button data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Decline</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1213,7 +1218,7 @@
     <footer class="bg-fuchsia-200 rounded-t-lg text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-            <a href="PSHgradientback.html" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <a href="PSH.html" class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
               <svg xmlns="http://www.w3.org/2000/svg" width="240px" height="60px"> 
               <!-- fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24" -->
                 <image href="assets/PSH logo.png" x="0" y="0" width="240px" height="60px"></image>
