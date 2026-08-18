@@ -189,7 +189,7 @@ export default function Hero() {
 
         {/* Right */}
         <div className="reveal relative flex justify-center lg:justify-start">
-          <div className="relative">
+          <div className="relative w-full max-w-[340px] lg:max-w-none">
             <PhoneMockup />
             {/* Analytics cards: stacked below on mobile, floating on lg */}
             <div className="mt-6 flex gap-3 overflow-x-auto no-scrollbar pb-1 lg:mt-0 lg:block lg:overflow-visible">

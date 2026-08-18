@@ -10,6 +10,14 @@ export function useReveal() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Fallback: if IntersectionObserver is unavailable, reveal everything now
+    // so content is never left hidden.
+    if (typeof IntersectionObserver === "undefined") {
+      el.querySelectorAll(".reveal").forEach((n) =>
+        n.setAttribute("data-revealed", "true")
+      );
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
