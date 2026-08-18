@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const QUICK_LINKS = [
-  ["Home", "#"],
+  ["Home", "/"],
   ["About Us", "/about"],
   ["Services", "/services"],
-  ["Our Work", "#work"],
+  ["Our Work", "/work"],
   ["Pricing", "/pricing"],
 ];
 

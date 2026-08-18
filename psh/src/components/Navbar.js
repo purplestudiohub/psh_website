@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui";
 
 const LINKS = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Our Work", href: "/work" },
@@ -34,7 +34,7 @@ export default function Navbar() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 lg:h-20 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3" aria-label="Purple Studio Hub home">
+          <a href="/" className="flex items-center gap-3" aria-label="Purple Studio Hub home">
             <Image
               src="/psh-logo.png"
               alt="Purple Studio Hub logo"
