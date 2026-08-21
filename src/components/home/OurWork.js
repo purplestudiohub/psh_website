@@ -88,6 +88,7 @@ export default function OurWork() {
               key={t}
               type="button"
               onClick={() => setTab(t)}
+              aria-pressed={tab === t}
               className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple focus-visible:ring-offset-2 ${
                 tab === t ? "bg-purple text-white" : "bg-white text-ink hover:bg-white/70"
               }`}
@@ -101,6 +102,7 @@ export default function OurWork() {
         <div className="reveal relative mt-10">
           <div
             ref={trackRef}
+            aria-live="polite"
             className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2"
           >
             {DATA[tab].map((card, i) => (

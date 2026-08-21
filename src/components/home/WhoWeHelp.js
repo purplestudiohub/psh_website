@@ -54,9 +54,7 @@ export default function WhoWeHelp() {
 
         {/* Right dark panel */}
         <div className="reveal rounded-xl2 bg-ink p-8 shadow-card sm:p-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-purple">
-            What You Get Every Month
-          </p>
+          <Eyebrow>What You Get Every Month</Eyebrow>
           <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
             {DELIVERABLES.map((d) => (
               <li key={d} className="flex items-center gap-3 text-sm text-white">

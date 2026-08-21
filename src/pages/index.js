@@ -1,6 +1,4 @@
-import Head from "next/head";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 import Hero from "@/components/home/Hero";
 import StatsBar from "@/components/home/StatsBar";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -11,29 +9,18 @@ import CtaBand from "@/components/home/CtaBand";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>
-          Purple Studio Hub — Social Media Management That Drives Real Growth
-        </title>
-        <meta
-          name="description"
-          content="We help brands and personal brands build a powerful online presence with strategy-driven content, high-quality reels, and stunning Instagram feeds."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Navbar />
-      <main>
-        <Hero />
-        <StatsBar />
-        <WhyChooseUs />
-        <WhoWeHelp />
-        <OurWork />
-        <BrandsTestimonials />
-        <CtaBand />
-      </main>
-      <Footer />
-    </>
+    <Layout
+      title="Purple Studio Hub — Social Media Management That Drives Real Growth"
+      description="We help brands and personal brands build a powerful online presence with strategy-driven content, high-quality reels, and stunning Instagram feeds."
+      path="/"
+    >
+      <Hero />
+      <StatsBar />
+      <WhyChooseUs />
+      <WhoWeHelp />
+      <OurWork />
+      <BrandsTestimonials />
+      <CtaBand />
+    </Layout>
   );
 }

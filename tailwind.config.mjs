@@ -10,10 +10,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        purple: { DEFAULT: "#7C3AED", dark: "#6D28D9", soft: "#EDE9FE" },
-        ink: { DEFAULT: "#0F0A1E", 2: "#171029" },
+        purple: { DEFAULT: "#7C3AED", dark: "#6D28D9", light: "#A78BFA", soft: "#EDE9FE" },
+        ink: { DEFAULT: "#0F0A1E", 2: "#171029", 3: "#0B0713" },
         surface: "#FFFFFF",
         muted: { DEFAULT: "#6B7280", light: "#9CA3AF" },
+        star: "#FBBF24",
+        positive: "#34D399",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import { Eyebrow } from "@/components/ui";
+import { Eyebrow, Stars } from "@/components/ui";
 import { useReveal } from "@/components/useReveal";
 
 const BRANDS = [
@@ -32,18 +32,6 @@ const TESTIMONIALS = [
     avatar: "/assets/skincare2.png",
   },
 ];
-
-function Stars() {
-  return (
-    <div className="flex gap-1" aria-label="5 out of 5 stars">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} className="h-4 w-4" viewBox="0 0 24 24" fill="#FBBF24" aria-hidden="true">
-          <path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
 
 function NavArrow({ dir, onClick }) {
   return (
@@ -86,7 +74,7 @@ export default function BrandsTestimonials() {
           {/* Testimonials */}
           <div className="reveal">
             <Eyebrow>What Our Clients Say</Eyebrow>
-            <div className="mt-6 rounded-xl2 bg-purple-soft/50 p-6 sm:p-8">
+            <div className="mt-6 rounded-xl2 bg-purple-soft/50 p-6 sm:p-8" aria-live="polite">
               <Stars />
               <p className="mt-4 text-lg leading-relaxed text-ink">
                 &ldquo;{t.quote}&rdquo;
@@ -111,10 +99,15 @@ export default function BrandsTestimonials() {
                   type="button"
                   onClick={() => setIdx(i)}
                   aria-label={`Go to testimonial ${i + 1}`}
-                  className={`h-2 rounded-full transition-all ${
-                    i === idx ? "w-6 bg-purple" : "w-2 bg-purple/30"
-                  }`}
-                />
+                  aria-current={i === idx}
+                  className="flex h-6 w-6 items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-purple"
+                >
+                  <span
+                    className={`block h-2 rounded-full transition-all ${
+                      i === idx ? "w-6 bg-purple" : "w-2 bg-purple/30"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>

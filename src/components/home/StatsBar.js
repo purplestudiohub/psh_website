@@ -10,7 +10,7 @@ const STATS = [
 function StarBadge() {
   return (
     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-purple-soft">
-      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="#7C3AED" aria-hidden="true">
+      <svg className="h-6 w-6 fill-purple" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z" />
       </svg>
     </span>

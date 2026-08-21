@@ -15,7 +15,7 @@ export default function PageHero({ eyebrow, title, subtitle }) {
       <div className="pointer-events-none absolute -right-32 top-0 h-80 w-80 rounded-full bg-purple/20 blur-3xl" />
       <div className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-purple/10 blur-3xl" />
       <div className="reveal mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        {eyebrow && <Eyebrow className="justify-center">{eyebrow}</Eyebrow>}
+        {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
         <h1 className="mt-4 text-4xl font-extrabold leading-tight text-white sm:text-5xl">
           {title}
         </h1>

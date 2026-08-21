@@ -81,9 +81,9 @@ function ServiceBlock({ service, flip, priority }) {
         </div>
         <div className={flip ? "lg:order-1" : ""}>
           <Eyebrow>{service.label}</Eyebrow>
-          <h3 className="mt-3 text-2xl font-extrabold text-ink sm:text-3xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-ink sm:text-3xl">
             {service.tagline}
-          </h3>
+          </h2>
           <ul className="mt-6 space-y-3">
             {service.features.map((f) => (
               <li key={f} className="flex items-start gap-3 text-sm text-ink/80">
@@ -104,6 +104,7 @@ export default function Services() {
     <Layout
       title="Services — Purple Studio Hub"
       description="Social media management, influencer marketing, user-generated content and brand shoots — everything your brand needs to grow."
+      path="/services"
     >
       <PageHero
         eyebrow="Our Services"

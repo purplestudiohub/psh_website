@@ -22,6 +22,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close the mobile menu on Escape.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   const solid = scrolled || open;
   const textColor = solid ? "text-ink" : "text-white";
 
@@ -76,6 +86,7 @@ export default function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             className={`lg:hidden inline-flex items-center justify-center rounded-md p-2 ${textColor}`}
           >
             <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -91,7 +102,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-white border-t border-black/5">
+        <div id="mobile-menu" className="lg:hidden bg-white border-t border-black/5">
           <ul className="px-4 py-4 space-y-1">
             {LINKS.map((l) => (
               <li key={l.label}>

@@ -9,8 +9,8 @@ const playfair = Playfair_Display({
 
 export default function App({ Component, pageProps }) {
   return (
-    <main className={`${inter.variable} ${playfair.variable} font-sans`}>
+    <div className={`${inter.variable} ${playfair.variable} font-sans`}>
       <Component {...pageProps} />
-    </main>
+    </div>
   );
 }

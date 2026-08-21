@@ -53,6 +53,7 @@ export default function About() {
     <Layout
       title="About Us — Purple Studio Hub"
       description="Crafting brand success stories from vision to victory with passion and perseverance."
+      path="/about"
     >
       <PageHero
         eyebrow="About Us"

@@ -3,7 +3,6 @@ import Image from "next/image";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import CtaBand from "@/components/home/CtaBand";
-import { Eyebrow } from "@/components/ui";
 import { useReveal } from "@/components/useReveal";
 
 const PROJECTS = [
@@ -33,6 +32,7 @@ export default function Work() {
     <Layout
       title="Our Work — Purple Studio Hub"
       description="Creatives that look good and reels that get results. Explore a selection of our brand work."
+      path="/work"
     >
       <PageHero
         eyebrow="Our Work"
@@ -40,8 +40,9 @@ export default function Work() {
         subtitle="A selection of the brands we've helped grow — across reels, feeds, user-generated content and brand shoots."
       />
 
-      <section ref={ref} className="bg-white py-16 sm:py-20">
+      <section ref={ref} className="bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="sr-only">Selected work</h2>
           {/* Filters */}
           <div className="reveal flex flex-wrap justify-center gap-3">
             {FILTERS.map((f) => (
@@ -49,6 +50,7 @@ export default function Work() {
                 key={f}
                 type="button"
                 onClick={() => setFilter(f)}
+                aria-pressed={filter === f}
                 className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple focus-visible:ring-offset-2 ${
                   filter === f ? "bg-purple text-white" : "bg-purple-soft/60 text-ink hover:bg-purple-soft"
                 }`}
@@ -59,11 +61,11 @@ export default function Work() {
           </div>
 
           {/* Grid */}
-          <div className="reveal mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="reveal mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4" aria-live="polite">
             {shown.map((p, i) => (
               <article
                 key={p.title}
-                className="group relative aspect-[4/5] overflow-hidden rounded-xl2 bg-ink"
+                className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink"
               >
                 <Image src={p.img} alt={p.title} fill priority={i < 4} className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 25vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />

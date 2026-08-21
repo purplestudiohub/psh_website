@@ -33,6 +33,18 @@ export function CheckIcon({ className = "w-5 h-5" }) {
   );
 }
 
+export function Stars({ count = 5, className = "h-4 w-4" }) {
+  return (
+    <div className="flex gap-1" aria-label={`${count} out of 5 stars`}>
+      {Array.from({ length: count }).map((_, i) => (
+        <svg key={i} className={`${className} fill-star`} viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 export function Eyebrow({ children, className = "" }) {
   return (
     <p

@@ -10,7 +10,7 @@ export default function CtaBand() {
       <div className="reveal mx-auto max-w-7xl overflow-hidden rounded-xl2 bg-gradient-to-br from-ink to-ink-2 p-8 shadow-card sm:p-12 lg:p-14">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
           <div>
-            <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="font-serif text-3xl font-extrabold text-white sm:text-4xl">
               Your business deserves better content.
             </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-light">

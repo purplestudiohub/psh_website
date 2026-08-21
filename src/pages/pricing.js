@@ -81,6 +81,7 @@ export default function Pricing() {
     <Layout
       title="Pricing — Purple Studio Hub"
       description="Simple, transparent pricing for social media management, influencer marketing, UGC and brand shoots."
+      path="/pricing"
     >
       <PageHero
         eyebrow="Pricing"
@@ -106,9 +107,9 @@ export default function Pricing() {
                     Most Popular
                   </span>
                 )}
-                <h3 className={`text-lg font-bold ${p.highlighted ? "text-white" : "text-ink"}`}>
+                <h2 className={`text-lg font-bold ${p.highlighted ? "text-white" : "text-ink"}`}>
                   {p.name}
-                </h3>
+                </h2>
                 <p className={`mt-1 text-sm ${p.highlighted ? "text-muted-light" : "text-muted"}`}>
                   {p.tagline}
                 </p>

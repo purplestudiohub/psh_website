@@ -2,7 +2,7 @@ import Image from "next/image";
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import CtaBand from "@/components/home/CtaBand";
-import { Eyebrow } from "@/components/ui";
+import { Eyebrow, Stars } from "@/components/ui";
 import { useReveal } from "@/components/useReveal";
 
 const BRANDS = [
@@ -49,18 +49,6 @@ const TESTIMONIALS = [
   },
 ];
 
-function Stars() {
-  return (
-    <div className="flex gap-1" aria-label="5 out of 5 stars">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} className="h-4 w-4" viewBox="0 0 24 24" fill="#FBBF24" aria-hidden="true">
-          <path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 export default function Clients() {
   const brandsRef = useReveal();
   const catRef = useReveal();
@@ -69,6 +57,7 @@ export default function Clients() {
     <Layout
       title="Clients — Purple Studio Hub"
       description="120+ brands trust Purple Studio Hub. See who we've worked with and what they say."
+      path="/clients"
     >
       <PageHero
         eyebrow="Our Clients"

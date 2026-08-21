@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button, Eyebrow } from "@/components/ui";
+import { Button } from "@/components/ui";
 import { useReveal } from "@/components/useReveal";
 
 const GRID_IMAGES = [
@@ -23,10 +23,10 @@ const AVATARS = [
 
 function Sparkline({ className = "" }) {
   return (
-    <svg viewBox="0 0 120 36" className={className} fill="none" aria-hidden="true">
+    <svg viewBox="0 0 120 36" className={`${className} text-purple-light`} fill="none" aria-hidden="true">
       <path
         d="M2 30 L18 24 L34 27 L50 16 L66 20 L82 10 L98 13 L118 3"
-        stroke="#A78BFA"
+        stroke="currentColor"
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -49,7 +49,7 @@ function Sparkline({ className = "" }) {
 function Bars({ className = "" }) {
   const heights = [10, 16, 12, 22, 18, 28, 24, 32];
   return (
-    <svg viewBox="0 0 120 36" className={className} aria-hidden="true">
+    <svg viewBox="0 0 120 36" className={`${className} text-purple-light`} aria-hidden="true">
       {heights.map((h, i) => (
         <rect
           key={i}
@@ -58,7 +58,7 @@ function Bars({ className = "" }) {
           width="9"
           height={h}
           rx="2"
-          fill="#A78BFA"
+          fill="currentColor"
           opacity={0.55 + i * 0.05}
         />
       ))}
@@ -74,17 +74,17 @@ function AnalyticsCard({ label, value, delta, chart, className = "" }) {
       <p className="text-xs font-medium text-muted-light">{label}</p>
       <p className="mt-1 text-2xl font-extrabold text-white">{value}</p>
       <div className="mt-2 h-9 w-full">{chart}</div>
-      <p className="mt-1 text-xs font-semibold text-emerald-400">{delta}</p>
+      <p className="mt-1 text-xs font-semibold text-positive">{delta}</p>
     </div>
   );
 }
 
 function PhoneMockup() {
   return (
-    <div className="relative mx-auto w-[280px] rounded-[2.5rem] border-[6px] border-ink-2 bg-black shadow-card sm:w-[300px]">
+    <div className="relative mx-auto w-[280px] rounded-[2.5rem] border-[6px] border-ink-2 bg-ink shadow-card sm:w-[300px]" aria-hidden="true">
       {/* notch */}
       <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-ink-2" />
-      <div className="overflow-hidden rounded-[2rem] bg-[#0b0713] pt-8 text-white">
+      <div className="overflow-hidden rounded-[2rem] bg-ink-3 pt-8 text-white">
         {/* profile header */}
         <div className="px-4">
           <div className="flex items-center gap-4">
@@ -176,7 +176,7 @@ export default function Hero() {
                   key={i}
                   className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-ink"
                 >
-                  <Image src={src} alt="" fill className="object-cover" sizes="44px" />
+                  <Image src={src} alt="" fill priority={i === 0} className="object-cover" sizes="44px" />
                 </span>
               ))}
             </div>
@@ -192,7 +192,12 @@ export default function Hero() {
           <div className="relative w-full max-w-[340px] lg:max-w-none">
             <PhoneMockup />
             {/* Analytics cards: stacked below on mobile, floating on lg */}
-            <div className="mt-6 flex gap-3 overflow-x-auto no-scrollbar pb-1 lg:mt-0 lg:block lg:overflow-visible">
+            <div
+              className="mt-6 flex gap-3 overflow-x-auto no-scrollbar pb-1 lg:mt-0 lg:block lg:overflow-visible"
+              tabIndex={0}
+              role="group"
+              aria-label="Account performance metrics"
+            >
               <AnalyticsCard
                 label="Reach"
                 value="1.2M+"
